@@ -1,3 +1,11 @@
+/*	
+	Name: 赵子豪
+	Date: 2017年6月1号
+*/
+
+
+
+/*	询问你有多少条狗？*/
 #include <stdio.h>
 int main(void)
 {
