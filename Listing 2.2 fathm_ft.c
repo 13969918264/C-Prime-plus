@@ -5,7 +5,7 @@
 
 
 
-//	convert 2 fathoms to feet
+//	fathm_ft.c	convert 2 fathoms to feet
 
 #include <stdio.h>
 int main(void)
