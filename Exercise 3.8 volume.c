@@ -17,6 +17,11 @@ int main(void)
 
 	printf("Ente volume int cups: ");
 	scanf("%f", &cups);
+	/*
+		flowing assignment statement must be there, don't be the first of the function body
+		Because these statement need the the value of cups.
+		but other assignment which doesn't be assigned by user must be at the first of function body
+	*/
 	pints = cups / 2;
 	ounces = cups * 8;
 	tablespoons = ounces * 2;
