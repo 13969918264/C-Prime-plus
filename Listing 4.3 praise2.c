@@ -16,7 +16,7 @@ int main(void)
 	scanf("%s", name);
 	printf("Hello, %s, %s\n", name, PRAISE);
 	printf("Your name of %d letters occupies %d memory cells.\n", strlen(name), sizeof(name));
-	printf("The phrase of praise has %d letters ", strlen(name));
+	printf("The phrase of praise has %d letters ", strlen(PRAISE));
 	printf("The phrase of praise has %d memory cells.\n", sizeof PRAISE);
 
 	return 0;
