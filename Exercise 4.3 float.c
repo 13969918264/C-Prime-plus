@@ -11,7 +11,7 @@ int main(void)
 	printf("Please enter a float-point number:\n");
 	scanf("%f", &number);
 	printf("The input is %.1f or %.1e\n", number, number);
-	printf("The input is %.3f or %.1E\n", number, number);
+	printf("The input is %+.3f or %.1E\n", number, number);
 
 	return 0;
 }
