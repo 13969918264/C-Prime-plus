@@ -16,7 +16,7 @@ int main(void)
 	{
 		foot = SCALE * shoe + ADJUST;
 		printf("%10.1f %15.2f inches\n", shoe, foot);
-		shoe = shoe + 1.0;
+		shoe = shoe + 1.0;			//	++shoe;
 	}			/*	end of block	*/
 	printf("If the shoe fits, wear it.\n");
 
