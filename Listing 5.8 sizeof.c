@@ -8,7 +8,7 @@
 int main(void)
 {
 	int n = 9;
-	size_t intsize;
+	size_t intsize;			//	typedef unsigned size_t
 
 	intsize = sizeof (int);
 	printf("n = %d, n has %u bytes; all ints have %u bytes.\n", n, sizeof n, intsize);
