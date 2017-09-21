@@ -10,8 +10,8 @@ int main(void)
 
 	while (super < 5)
 	{
-		super++;
-		++ultra;
+		super++;			//	super = super + 1;
+		++ultra;			//	ultra = super + 1;
 		printf("super = %d, ultra = %d \n", super, ultra);
 	}
 
