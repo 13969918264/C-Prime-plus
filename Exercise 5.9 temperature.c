@@ -1,4 +1,10 @@
 /*
+	error: different input same output
+*/
+
+
+
+/*
 	Name: 赵子豪(ZiHao Zhao)
 	Date: 2017年9月28日
 */
