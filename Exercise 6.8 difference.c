@@ -1,4 +1,4 @@
- /*
+  /*
     Name: 赵子豪(ZiHao Zhao)
     Date: 2017年10月14日
 */
@@ -16,6 +16,7 @@ int main(void)
         product = number_one * number_two;
         difference = abs(product / number_one - product / number_two);
         printf("You enter %f and %f.\n", number_one, number_two);
+        printf("The value of their difference divided by their product is %lf.\n", difference);
         printf("Please enter two float-point number:\n");
     }
     printf("You enter one nonnumberic at least! The program is quit.\n");
