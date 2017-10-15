@@ -3,25 +3,24 @@
     Date: 2017年10月15日
 */
 /*  infinite.c -- calculat the total of the series  */
-//  run successfully but i do not know whether it is right.
 #include <stdio.h>
 int main(void)
 {
     int flag;
-    int index;
-    double sum;
+    float index;            //  if the type is int, the sum will be set as 1.
+    float sum;
     float last;
 
     printf("Enter a number as the limit of the series:");
     scanf("%f", &last);
     while (last)
     {
-        for (index = 1.0, flag = 1.0, sum = 0; index <= last; index++)
+        for (index = 1, flag = 1, sum = 0; index <= last; index++)
         {
             sum += flag / index;
-            flag = -flag;
+            flag = -flag;           //  omit the statement, the program will change.
         }
-        printf("The series up to %f is %.10lf.\n", last, sum);
+        printf("The series up to %f is %f.\n", last, sum);
         printf("Please enter the next limit: ");
         scanf("%f", &last);
     }
