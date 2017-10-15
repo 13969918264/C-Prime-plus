@@ -1,20 +1,18 @@
-  /*
+ /*
     Name: 赵子豪(ZiHao Zhao)
     Date: 2017年10月14日
 */
 /* difference.c -- read. two value of float-point and print the value of their difference divided by their product  */
 #include <stdio.h>
-#include <math.h>
 int main(void)
 {
     float number_one, number_two;
-    double difference, product;
+    double difference;
 
     printf("Enter two float number:\n");
     while (scanf("%f", &number_one) && scanf("%f", &number_two))
     {
-        product = number_one * number_two;
-        difference = abs(product / number_one - product / number_two);
+        difference = number_one * number_two / (number_one - number_two);
         printf("You enter %f and %f.\n", number_one, number_two);
         printf("The value of their difference divided by their product is %lf.\n", difference);
         printf("Please enter two float-point number:\n");
