@@ -19,7 +19,6 @@ int main(void)
         for ( ; index > 0; )
             printf("%c", line[--index]);
         printf("\n");
-        printf("%d", index);
     }
 
     return 0;
