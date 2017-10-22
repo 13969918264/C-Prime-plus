@@ -9,7 +9,7 @@ int main(void)
     char ch;
     int a_ct, e_ct, i_ct, o_ct, u_ct;
 
-    a_ct = e_ct = i_ct = o_ct = u_ct;
+    a_ct = e_ct = i_ct = o_ct = u_ct = 0;
 
     printf("Enter some text; enter # to quit.\n");
     while ((ch = getchar()) != '#')
