@@ -2,4 +2,4 @@
 
 
 
-the source code in this textbook besides some practices
+the source code in the textbook including practices I finished. 
