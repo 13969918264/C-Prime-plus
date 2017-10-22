@@ -15,8 +15,7 @@ int main(void)
     printf("Enter some text; enter # to quit.\n");
     while ((ch = getchar()) != '#')
     {
-        ch = toupper(ch);
-        switch (ch)
+        switch (toupper(ch))
         {
 
             case 'A' :
