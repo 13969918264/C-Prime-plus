@@ -13,15 +13,11 @@ int main(void)
     while ((ch = getchar()) != '#')
     {
         if (ch != '.' && ch != '!')
-        {
             putchar(ch);
-            continue;
-        }
         else if (ch == '.')
         {
             putchar('!');
             number++;
-            continue;
         }
         else
         {
