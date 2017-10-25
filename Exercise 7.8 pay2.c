@@ -79,8 +79,9 @@ int main(void)
             printf("Your gross pay is $%f, tax is $%f, net pay is $%f.\n", gross_pay, tax, net_pay);
             printf("Go on. if you want to change the pay rate, enter q to quit.\n");
         }
-        printf("Please enter the choice number.\n");
         choice_table();
+        printf("Please enter the choice number : \n");
+        getchar();          //  omit the statement will lead the program to stop immediately
     }
 
     return 0;
