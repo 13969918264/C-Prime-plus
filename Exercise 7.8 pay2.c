@@ -1,7 +1,8 @@
 /*
     Name: 赵子豪(ZiHao Zhao)
-    Date: 2017年10月25日
+    Date: 2017年10月24 and 25日
 */
+/*  the program can choose the pay rate only once and i don't know what happened with that.*/
 /*  pay2.c -- first request the number of choice and accord to the number of choice to decide whether request work hours and print pay  */
 #include <stdio.h>
 #define WORK_HOURS 40
