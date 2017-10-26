@@ -8,14 +8,14 @@
 */
 #include <stdio.h>
 #define	ANTICHOKE_PRICE 2.05
-#define BEETS_PRICE 1.15
+#define BEET_PRICE 1.15
 #define	CARROT_PRICE 1.09
 #define DISCOUNT_CHARGE 100
 #define FIRST_WEIGHT 5.0
 #define SECOND_WEIGHT 20.0
 #define FIRST_WEIGHT_CHARGE 6.5
 #define SECOND_WEIGHT_CHARGE 14.00
-#define REST_PER_WEIGHT_CHARGE 14.50
+#define REST_PER_POUND_CHARGE 14.50
 #define DISCOUNT 0.05
 int main(void)
 {
@@ -26,7 +26,7 @@ int main(void)
 	float discount;
 	float total_charge;
 	float shopping_charge;
-	float grand_total;
+	float grand_charge;
 	float antichoke_charge;
 	float beet_charge;
 	float carrot_charge;
@@ -41,22 +41,22 @@ int main(void)
 	{
 		switch (choice)
 		{
-			case a :
+			case 'a' :
 					printf("Enter the pounds of antichoke desired.\n");
 					scanf("%f", &antichoke_weight);
 					total_weight += antichoke_weight;
 					break;
-			case b :
+			case 'b' :
 					printf("Enter the pounds of beet desired.\n");
 					scanf("%f", &beet_weight);
 					total_weight += beet_weight;
 					break;
-			case c :
+			case 'c' :
 					printf("Enter the pounds of carrot desired.\n");
 					scanf("%f", &carrot_weight);
 					total_weight += carrot_weight;
 					break;
-			case q :
+			case 'q' :
 					printf("You enter %c.\nThe program is over.\n");
 					break;
 			default :
@@ -78,14 +78,14 @@ int main(void)
 			shopping_charge = FIRST_WEIGHT_CHARGE;
 			grand_charge = total_charge + shopping_charge;
 		}
-		else if (total <= SECOND_WEIGHT)
+		else if (total_weight <= SECOND_WEIGHT)
 		{
 			shopping_charge = SECOND_WEIGHT_CHARGE;
 			grand_charge = total_charge + shopping_charge;
 		}
 		else
 		{
-			shopping_charge = SECOND_WEIGH_CHARGE + (total_weight - SECOND_WEIGHT) * REST_PER_POUND_CHARGE;
+			shopping_charge = SECOND_WEIGHT_CHARGE + (total_weight - SECOND_WEIGHT) * REST_PER_POUND_CHARGE;
 			grand_charge = total_charge + shopping_charge;
 		}
 	}
