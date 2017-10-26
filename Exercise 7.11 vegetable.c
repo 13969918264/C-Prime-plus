@@ -103,9 +103,8 @@ int main(void)
     printf("You bought %f pounds antichoke.\t\t\tcosts $%f.\n", antichoke_weight, antichoke_charge);
     printf("You bought %f pounds beet.\t\t\tcosts $%f.\n", beet_weight, beet_charge);
     printf("You bought %f pounds carrot.\t\t\tcosts $%f.\n", carrot_weight, carrot_charge);
-    printf("You spend $%f, shopping charge is $%f, the grand charge of all is $%f.\n",total_charge, shopping_charge, grand_charge);
+    printf("You spend $%f, shopping charge is $%f, the grand charge of all is $%f.\n", total_charge, shopping_charge, grand_charge);
     printf("Wishing you have a happy shopping.\n");
-
 
 	return 0;
 }
