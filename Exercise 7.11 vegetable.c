@@ -57,54 +57,55 @@ int main(void)
 					total_weight += carrot_weight;
 					break;
 			case 'q' :
-					printf("You enter %c.\nThe program is over.\n", choice);
+					printf("You enter %c.\nThe order is over.\n", choice);
 					break;
 			default :
 					printf("Please enter the number of choice given.\n");
 		}
 		if (choice == 'q')
 			break;
-		printf("What else do you want to buy?\n");
-		printf("Please enter the number of choice given (except you have bought.)and q to quit.\n");
+		else if (choice >= 'a'&& choice <= 'c')
+		{
+            printf("What else do you want to buy?\n");
+            printf("Please enter the number of choice given (except you have bought.)and q to quit.\n");
+        }
 	}
-	if (choice != 'q')
+    antichoke_charge = antichoke_weight * ANTICHOKE_PRICE;
+    beet_charge = beet_weight * BEET_PRICE;
+    carrot_charge = carrot_weight * CARROT_PRICE;
+    total_charge = antichoke_charge + beet_charge + carrot_charge;
+    if (total_charge <= DISCOUNT_CHARGE)
     {
-        antichoke_charge = antichoke_weight * ANTICHOKE_PRICE;
-        beet_charge = beet_weight * BEET_PRICE;
-        carrot_charge = carrot_weight * CARROT_PRICE;
-        total_charge = antichoke_charge + beet_charge + carrot_charge;
-        if (total_charge <= DISCOUNT_CHARGE)
+        if (total_weight <= FIRST_WEIGHT)
         {
-            if (total_weight <= FIRST_WEIGHT)
-            {
-                shopping_charge = FIRST_WEIGHT_CHARGE;
-                grand_charge = total_charge + shopping_charge;
-            }
-            else if (total_weight <= SECOND_WEIGHT)
-            {
-                shopping_charge = SECOND_WEIGHT_CHARGE;
-                grand_charge = total_charge + shopping_charge;
-            }
-            else
-            {
-                shopping_charge = SECOND_WEIGHT_CHARGE + (total_weight - SECOND_WEIGHT) * REST_PER_POUND_CHARGE;
-                grand_charge = total_charge + shopping_charge;
-            }
+            shopping_charge = FIRST_WEIGHT_CHARGE;
+            grand_charge = total_charge + shopping_charge;
+        }
+        else if (total_weight <= SECOND_WEIGHT)
+        {
+            shopping_charge = SECOND_WEIGHT_CHARGE;
+            grand_charge = total_charge + shopping_charge;
         }
         else
         {
-            discount = total_charge * DISCOUNT;
-            grand_charge = total_charge - discount;
+            shopping_charge = SECOND_WEIGHT_CHARGE + (total_weight - SECOND_WEIGHT) * REST_PER_POUND_CHARGE;
+            grand_charge = total_charge + shopping_charge;
         }
-        printf("The price of antichoke per pounds is $%f.\n", ANTICHOKE_PRICE);
-        printf("The price of beet per pounds is $%f.\n", BEET_PRICE);
-        printf("The price of carrot per pounds is $%f.\n", CARROT_PRICE);
-        printf("You bought %f pounds antichoke.\t\t\tcosts $%f.\n", antichoke_weight, antichoke_charge);
-        printf("You bought %f pounds beet.\t\t\tcosts $%f.\n", beet_weight, beet_charge);
-        printf("You bought %f pounds carrot.\t\t\tcosts $%f.\n", carrot_weight, carrot_charge);
-        printf("You spend $%f, shopping charge is $%f, the grand charge of all is $%f.\n");
-        printf("Wishing you have a happy shopping.\n");
     }
+    else
+    {
+        discount = total_charge * DISCOUNT;
+        grand_charge = total_charge - discount;
+    }
+    printf("The price of antichoke per pounds is $%f.\n", ANTICHOKE_PRICE);
+    printf("The price of beet per pounds is $%f.\n", BEET_PRICE);
+    printf("The price of carrot per pounds is $%f.\n", CARROT_PRICE);
+    printf("You bought %f pounds antichoke.\t\t\tcosts $%f.\n", antichoke_weight, antichoke_charge);
+    printf("You bought %f pounds beet.\t\t\tcosts $%f.\n", beet_weight, beet_charge);
+    printf("You bought %f pounds carrot.\t\t\tcosts $%f.\n", carrot_weight, carrot_charge);
+    printf("You spend $%f, shopping charge is $%f, the grand charge of all is $%f.\n",total_charge, shopping_charge, grand_charge);
+    printf("Wishing you have a happy shopping.\n");
+
 
 	return 0;
 }
