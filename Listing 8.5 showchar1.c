@@ -7,13 +7,13 @@
 void display(char cr, int lines, int width);
 int main(void)
 {
-    int ch;         /*  character to be printed */
+    int ch;         /*  character to be printed */          //  type int to enable the EOF text
     int rows, cols;         /*  number of rows and columns  */
     printf("Please enter a character and two integers:\n");
     while ((ch = getchar()) != '\n')
     {
         scanf("%d %d", &rows, &cols);
-        display(ch, rows, cols);
+        display(ch, rows, cols);            //  pass variable ch to function display in type char
         printf("Enter another character and two integers;\n");
         printf("Enter a newline to quit.\n");
     }
