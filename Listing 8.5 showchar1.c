@@ -16,7 +16,6 @@ int main(void)
         display(ch, rows, cols);            //  pass variable ch to function display in type char
         printf("Enter another character and two integers;\n");
         printf("Enter a newline to quit.\n");
-        getchar();
     }
     printf("Bye!\n");
 
