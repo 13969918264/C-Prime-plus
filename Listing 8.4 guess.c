@@ -13,7 +13,11 @@ int main(void)
     printf("\nan n if it is wrong.\n");
     printf("Uh...is your number %d?\n", guess);
     while (getchar() != 'y')            //  get response, compare to y.
+    {
         printf("Well, then, is it %d?\n", ++guess);         //  newline character also is a character, so the statement perform twice
+        while (getchar() != '\n')
+            continue;
+    }
     printf("I knew I could do it!\n");
 
     return 0;
