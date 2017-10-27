@@ -15,7 +15,7 @@ int main(void)
         scanf("%d %d", &rows, &cols);
         display(ch, rows, cols);            //  pass variable ch to function display in type char
         printf("Enter another character and two integers;\n");
-        printf("Enter a newline to quit.\n");
+        printf("Enter a newline to quit.\n");           //  after reading 3 then read 'enter' so the program is over.
     }
     printf("Bye!\n");
 
