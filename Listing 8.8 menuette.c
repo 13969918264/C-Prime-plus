@@ -58,7 +58,7 @@ char get_choice(void)
     ch = get_first();
     while ((ch < 'a' || ch > 'c') && ch != 'q')
     {
-        printf("Please respond with a, b, c, q.\n");
+        printf("Please respond with a, b, c, or q.\n");
         ch = get_first();
     }
 
