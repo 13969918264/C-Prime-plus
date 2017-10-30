@@ -80,7 +80,6 @@ int main(void)
             printf("Go on. if you want to change the pay rate, enter q to quit.\n");
         }
         choice_table();
-        printf("Please enter the choice number : \n");
         getchar();          //  omit the statement will lead the program to stop immediately
     }
 
