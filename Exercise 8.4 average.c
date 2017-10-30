@@ -2,7 +2,7 @@
     Name: 赵子豪(ZiHao Zhao)
     Date: 2017年10月29日
 */
-/*  average.c -- account the average number of letters per word */
+/*  average.c -- account the average number of letters per word(punctuations are counted) */
 #include <stdio.h>
 #include <ctype.h>
 int main(void)
@@ -16,8 +16,10 @@ int main(void)
     {
         if (isalpha(ch))
             account_letters++;
-        else if (ch == '\0' || ch == '\n')
+        else if (isspace(ch))
+        {
             account_words++;
+        }
     }
     printf("\nThe number of letters is %d, "
            "the number of word is %d, "
