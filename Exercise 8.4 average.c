@@ -1,30 +1,47 @@
 /*
-    Name: 赵子豪(ZiHao Zhao)
-    Date: 2017年10月29日
+	Name: 赵子豪(ZiHao Zhao)
+	Date: 2017年10月30日
 */
-/*  average.c -- account the average number of letters per word(punctuations are counted) */
+/*	guess2.c -- an efficient and right number-guesser	*/
 #include <stdio.h>
-#include <ctype.h>
+#define MAX 100
+#define MIN 0
+#define RATE 2
 int main(void)
 {
-    int account_letters;
-    int account_words;
-    char ch;
+	int max = MAX;
+	int min = MIN;
+	int middle = (max + min) / RATE;
+	char ch;
+	int guess = middle;
 
-    printf("Enter words and it will report the average number of letters per word when it stop.\n");
-    for (account_letters = account_words = 0; (ch = getchar()) != EOF; )
-    {
-        if (isalpha(ch))
-            account_letters++;
-        else if (isspace(ch))
-        {
-            account_words++;
-        }
-    }
-    printf("\nThe number of letters is %d, "
-           "the number of word is %d, "
-           "the average number of letters is %d.\n",
-           account_letters, account_words, account_letters / account_words);
+	printf("Pick an integer form 0 to 100, I will try to guess "
+		   "it.\nRespond with high if the guess is grater than it.\n"
+		   "Respond with low if the guess is less than it.\n"
+		   "Respond correct if the guess is right.\n");
+	printf("Is your number is %d.\n", guess);
+	while ((ch = getchar()) != 'c')
+	{
+		if (ch == 'h')
+		{
+			printf("I guess it highly.\n");
+			max = middle;
+			guess = middle = (min + max) / RATE;
+			printf("well, your number is %d.\n", guess);
+		}
+		else if (ch == 'l')
+		{
+			printf("I guess it lower.\n");
+			min = middle;
+			guess = middle = (min + max) / RATE;
+			printf("well, your number is %d.\n", guess);
+		}
+		else
+			printf("Please enter the choice given.\n");
+		while (getchar() != '\n')
+			continue;
+	}
+	printf("I know I could do it.\n");
 
-    return 0;
+	return 0;
 }
