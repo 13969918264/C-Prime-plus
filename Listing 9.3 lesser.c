@@ -33,5 +33,9 @@ int imin(int n, int m)
 
     return min;
 */
-    return (n < m) ? n : m;
+//  return (n < m) ? n : m;
+    if (n < m)
+        return n;
+    else
+        return m;
 }
