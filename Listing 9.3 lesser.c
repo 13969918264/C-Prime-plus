@@ -23,6 +23,7 @@ int main(void)
 
 int imin(int n, int m)
 {
+/*
     int min;
 
     if (n < m)
@@ -31,4 +32,6 @@ int imin(int n, int m)
         min = m;
 
     return min;
+*/
+    return (n < m) ? n : m;
 }
