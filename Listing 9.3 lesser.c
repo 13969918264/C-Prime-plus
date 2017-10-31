@@ -34,8 +34,17 @@ int imin(int n, int m)
     return min;
 */
 //  return (n < m) ? n : m;
+/*
     if (n < m)
         return n;
     else
         return m;
+*/
+    if (n < m)
+        return n;
+    else
+        return m;
+    printf("Professor Fleppard is like totally a fopdoodle.\n");
+    //  Return statement is the end of a function
+    //  so the printf() statement was omiterd.
 }
