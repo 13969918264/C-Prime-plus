@@ -14,10 +14,13 @@ double power(double m, int n)           //  calculate the m to power n
         {
             for (i = 0, result = 1; i < n; i++)
                 result *= m;
-            return result;
+            if (n > 0)
+                return result;
+            else
+                return 1 / result;
         }
         else
-            return 0;
+            return 1;
     }
     else if (n != 0)
         return 0;
