@@ -8,7 +8,7 @@
 
 int main(void)
 {
-    int number, base, result;
+    int number, base;
 
     printf("Enter a number based-10:\n");
     scanf("%d", &number);
