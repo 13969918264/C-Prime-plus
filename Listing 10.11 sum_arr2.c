@@ -26,7 +26,7 @@ int sump(int * start, int * end)
     {
         total += *start;            //  add value to total;
         start++;            //  advance pointer to next element
-    //  total += *(start++);
+    //  total += *(start++);            //  postfix form meant the variable added first and increment next
     }
 
     return total;
