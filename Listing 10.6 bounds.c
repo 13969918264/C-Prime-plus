@@ -17,7 +17,7 @@ int main(void)
         arr[i] = 2 * i + 1;
 
     for (i = -1; i < 7; i++)
-        printf("%2d  %d\n", arr[i]);
+        printf("%2d  %d\n", i, arr[i]);
     printf("value1 = %d, value2 = %d\n", value1, value2);           //  in mac os x, little endian.
     printf("address of arr[-1]: %p\n", &arr[-1]);
     printf("address of arr[4]:  %p\n", &arr[4]);
