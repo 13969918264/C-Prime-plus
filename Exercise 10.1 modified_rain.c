@@ -19,15 +19,18 @@ int main(void)
     };
     int year, month;
     float subtot, total;
-    int (* ptr)[MONTHS];
+    float (* ptr)[MONTHS];
+/*
+    the last statement, firstly, type it with int, is not corresponding to the type of array pointed to
+    compile and run rightly, but the result is wrong.
+    So, be cautious with the type of pointer when declare a pointer for a given array or else.   
+*/
 
     ptr = rain;
-    printf(" YERA   RAINFALL  (inches)\n");
     for (year = 0, total = 0; year < YEARS; year++)
     {           //  for each year, sum rainfall for each month
         for (month = 0, subtot = 0; month < MONTHS; month++)
             subtot += *(*(ptr + year) + month);
-            printf("%f", subtot);
         printf("%5d %15.1f\n", 2010 + year, subtot);
         total += subtot;            //  total for all years
     }
