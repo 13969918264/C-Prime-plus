@@ -2,7 +2,8 @@
     Name: 赵子豪(ZiHao Zhao)
     Date: 2017年11月07日
 */
-//	can not print anything but i do not know why it does not work.
+//	can not print anything but i do not know why it does not work
+//  update in line 33, varible initialization error(j write i), and correct it yet. 20171108
 //  vararr2d.c -- functions using VLAs
 #include <stdio.h>
 #define ROWS 3
@@ -29,7 +30,7 @@ int main(void)
     int varr[rs][cs];           //  VLA
 
     for (i = 0; i < rs; i++)
-        for (i = 0; j < cs; j++)
+        for (j = 0; j < cs; j++)
             varr[i][j] = i * j + j;
 
     printf("3 x 5 array\n");
