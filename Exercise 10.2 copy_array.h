@@ -7,3 +7,4 @@
 void copy_arr(double [], double [], int);
 void copy_ptr(double *, double *, int);
 void copy_ptrs(double [], double [], double *);
+void print_array(double [], double *, double *, double *, int n);
