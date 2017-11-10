@@ -17,14 +17,14 @@ int main(void)
     printf("Except for the first array, the other three arrays are uninitialized\n");
     printf("The four arrays(an array in a column) are: \n");
 
-    for (i = 0; i < N; i++)
-    {
-        printf("%lf\t", source[i]);
-    }
+    print_array(source, target1, target2, target3, N);
+    printf("\n");
 
     copy_arr(target1, source, N);
-    copy_arr(target2, source, N);
-    copy_arr(target1, source, source + N);
+    copy_ptr(target2, source, N);
+    copy_ptrs(target1, source, source + N);
+
+    print_array(source, target1, target2, target3, N);
 
     printf("Bye\n");
 }
