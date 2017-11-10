@@ -1,6 +1,6 @@
 /*
     Name: 赵子豪(ZiHao Zhao)
-    Date: 2017年11月09日
+    Date: 2017年11月09日 and 10日
 */
 /*  copy_array.c -- using functions to copy an array into three other arrays    */
 #include <stdio.h>
@@ -20,9 +20,6 @@ int main(void)
     for (i = 0; i < N; i++)
     {
         printf("%lf\t", source[i]);
-        printf("%lf\t", target1[i]);
-        printf("%lf\t", target2[i]);
-        printf("%lf\t", target3[i]);
     }
 
     copy_arr(target1, source, N);
