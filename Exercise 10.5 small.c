@@ -5,9 +5,9 @@
 /*  small.c -- find the smallest number of an array and return it  */
 double small(const double arr[], int n)
 {
-    int i, min;
-
-    min = *arr;
+    int i;
+    double min = *arr;
+    
     for (i = 1; i < n; i++)
         min <= arr[i] ? min : (min = arr[i]);
 
