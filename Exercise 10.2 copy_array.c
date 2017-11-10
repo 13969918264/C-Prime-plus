@@ -22,8 +22,9 @@ int main(void)
 
     copy_arr(target1, source, N);
     copy_ptr(target2, source, N);
-    copy_ptrs(target1, source, source + N);
+    copy_ptrs(target3, source, source + N);
 
+    printf("Now the four arrays are:\n");
     print_array(source, target1, target2, target3, N);
 
     printf("Bye\n");
