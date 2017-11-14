@@ -3,7 +3,6 @@
     Date: 2017年11月14日
 */
 /*  copy2.h */
-#define N 5
 #define COLS 5
 #define ROWS 2
 
