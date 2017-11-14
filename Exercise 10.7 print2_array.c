@@ -5,11 +5,11 @@
 /*print2_array.c -- print an array   */
 #include <stdio.h>
 #define N 5
-void print_array(double arr[][N], int ROWS)
+void print_array(double arr[][N], int rows)
 {
     int i, j;
 
-    for (i = 0; i < ROWS; i++)
+    for (i = 0; i < rows; i++)
     {
         for (j = 0; j < N; j++)
             printf("%lf\t", *(*(arr+i) + j));
