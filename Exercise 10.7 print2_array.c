@@ -3,8 +3,9 @@
     Date: 2017年11月14日
 */
 /*print2_array.c -- print an array   */
-include <stdio.h>
-void print_array(double arr[][N], ROWS)
+#include <stdio.h>
+#define N 5
+void print_array(double arr[][N], int ROWS)
 {
     int i, j;
 
