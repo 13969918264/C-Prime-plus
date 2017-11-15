@@ -8,7 +8,7 @@ void print_VLA(int rows, int cols, double arr[rows][cols])
 {
 	int i, j;
 
-	for (i = 0; i < cols; i++)
+	for (i = 0; i < rows; i++)
 	{
 		for (j = 0; j < cols; j++)
 			printf("%lf\t", arr[i][j]);
