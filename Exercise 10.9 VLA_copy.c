@@ -8,7 +8,8 @@
 int main(void)
 {
 	int rows = N, cols = M;
-	double arr1[rows][cols] = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 0}, {5, 4, 3, 2, 1}};
+    //  variable-sized object can not be initialized, so change it.
+	double arr1[N][M] = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 0}, {5, 4, 3, 2, 1}};
 	double arr2[rows][cols];
 
 	printf("The first array:\n");
