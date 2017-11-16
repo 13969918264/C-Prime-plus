@@ -7,4 +7,4 @@
 #define YEARS 5         //  number of years of data
 
 void rainfall_year(const float [][MONTHS], int);
-void rainfall_month(const floar [][MONTHS], int);
+void rainfall_month(const float [][MONTHS], int);
