@@ -19,3 +19,4 @@ int main(void)
     rainfall_month(rain, YEARS);
 
     return 0;
+}
