@@ -10,7 +10,8 @@ int main(void)
     char words[STLEN];
 
     puts("Enter a string, please.");
-    fgets(words, STLEN, stdin);
+    fgets(words, STLEN, stdin);         //  This function also see newline character
+    //  as a character be stored utill the target is full.
     printf("Your string twice (puts(), then fputs()):\n");
     puts(words);
     fputs(words, stdout);
