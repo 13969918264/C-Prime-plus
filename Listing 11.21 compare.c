@@ -15,7 +15,7 @@ int main(void)
 
     puts("Who is buried int Grant's tomb");
     s_gets(try, SIZE);
-    while (strcmp(try, ANSWER) != 0)
+    while (strcmp(try, ANSWER))
     {
         puts("No, that's wrong, Try again.");
         s_gets(try, SIZE);
