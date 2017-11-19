@@ -6,6 +6,7 @@
 #include <stdio.h>
 void put1(const char * string)          /*  string not altered  */
 {
-    while (*string != '\n')
-        putchar(*string++);
+    while (*string != '\0')
+        putchar(*string++);         //  the higher precedence of ++ compared to * means that putchar(*string++) print the value
+        //  pointed to by string but increments string itself, not the charachter to which it points.
 }
