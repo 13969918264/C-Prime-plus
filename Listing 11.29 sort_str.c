@@ -14,7 +14,7 @@ char * s_gets(char *, int);
 int main(void)
 {
     char input[LIM][SIZE];          /*  array to store input    */
-    char *ptstr[LIM];           /*  array of pointer variables  */
+    char * ptstr[LIM];           /*  array of pointer variables  */
     int ct = 0;         /*  input count */
     int k;          /*  output count    */
 
@@ -39,8 +39,9 @@ void stsrt(char * strings[], int num)
     char * temp;
     int top, seek;
 
-    for (top = 0; top < num - 1; top++)
-        for (seek = top + 1; seek < num; seek++)
+    /*  for each cycle , get the minimum string except the minimum string has been found */
+    for (top = 0; top < num - 1; top++)         // to ensure the first storage untraversed in this cycle store the minimum string
+        for (seek = top + 1; seek < num; seek++)            //  finding the minimum string by comparing one to the other
             if (strcmp(strings[top], strings[seek]) > 0)
             {
                 temp = strings[top];
