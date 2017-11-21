@@ -4,7 +4,7 @@
 */
 /*  hello.c -- converts command-line argument to number */
 #include <stdio.h>
-#include <ctype.h>
+#include <stdlib.h>
 
 int main(int argc, char * argv[])
 {
