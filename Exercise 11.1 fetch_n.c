@@ -8,12 +8,20 @@
 
 char * fetch_n(char * st, int n)
 {
+/*
 	char * ret_val;
 	char * first;
 
 	ret_val = fgets(st, n, stdin);
 	if (first = strchr(st, '\n'))
 		*first = '\0';
+*/
+	char * ret_val;
+	int i = 0;
+
+	ret_val = st;
+	while (i++ < n)
+		*st++ = getchar();
 
 	return ret_val;
 }
