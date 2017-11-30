@@ -5,7 +5,7 @@
 /*	mystrncpy.c	*/
 #include <string.h>
 
-char * mystrncpy(char * st1, char * st2, int n)
+char * mystrncpy(char * st1, const char * st2, int n)
 {
 	char * ret_val
 	int i = 0;
