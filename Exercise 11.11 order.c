@@ -3,7 +3,7 @@
 	Date: 2017年12月04日
 */
 /*	order.c -- sort the strings in ASCII collating sequence	*/
-#include <stdio.h>
+#include <sting.h>
 void order(char * st, int num)
 {
 	int i, j;
