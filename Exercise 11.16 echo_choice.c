@@ -15,7 +15,7 @@ int main(int argc, char * argv[])
 			continue;
 		else
 			break;
-	echo(str, argv[1]);
+	echo2(str, argv[1]);
 
 	return 0;
 }
