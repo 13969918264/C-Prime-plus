@@ -20,8 +20,12 @@ char * fetch_n(char * st, int n)
 	int i = 0;
 
 	ret_val = st;
-	while (i++ < n)
-		*st++ = getchar();
+	while (i < n && (*st = getchar()) != EOF)
+	{
+		st++;
+		i++;
+	}
+	*st = '\0';
 
 	return ret_val;
 }
