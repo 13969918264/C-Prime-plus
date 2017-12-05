@@ -4,4 +4,4 @@
 */
 /*	fetch2.h	*/
 #define MAX 50
-char * fetch2_n(char * , int);
+void fetch2_n(char *, int);
