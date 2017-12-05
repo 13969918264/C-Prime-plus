@@ -12,7 +12,7 @@ int main(void)
 	puts("Enter a line");
 	fetch_n(str, MAX);
 	puts("You enter (less the maximum)");
-	pus(str);
+	puts(str);
 
 	return 0;
 }
