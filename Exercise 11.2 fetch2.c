@@ -10,10 +10,11 @@
 int main(void)
 {
 	char str[MAX];
-	puts("Enter a line");
+
+	puts("Enter as you like, EOF or arrive the maximum to quit");
 	fetch2_n(str, MAX);
 	puts("You enter (less the maximum)");
-	pus(str);
+	puts(str);
 
 	return 0;
 }
