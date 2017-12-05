@@ -9,6 +9,7 @@
 int main(void)
 {
 	char str[MAX];
+
 	puts("Enter as you like, EOF or arrive the maximum to quit");
 	fetch_n(str, MAX);
 	puts("You enter (less the maximum)");
