@@ -17,7 +17,7 @@ void first2(char * arr, int n)
 			continue;
 		if (i >= n)
 			i--;
-		while (getchar() != '\n')
+		while (getchar() != '\n')				//	in order to keep one line input.
 			continue;
 	}
 	else
@@ -29,4 +29,3 @@ void first2(char * arr, int n)
 
 	arr[i] = '\0';
 }
-2
