@@ -18,7 +18,7 @@ int main(void)
 		putchar (arr[i]);
 		i++;
 	}
-	puts("\n");
+	puts("\n");			//	there must be double quote, the argument must be a pointer.
 
 	return 0;
 }
