@@ -4,12 +4,15 @@
 */
 /*	first.c	*/
 #include <stdio.h>
-void frist(char * arr)
+#include <ctype.h>
+void first(char * arr)
 {
-	while ((*arr = getchar()) != ' ' && *arr != '\n' && *arr > 'A' && *arr < 'z')
-		arr++;
-	if (*arr == '\n')
-		*arr = '\0'
-	while (getchar() != '\n')
+	while ((*arr = getchar()) && isspace(*arr))
+		continue;			//	skip the leading whitespace.
+	while ((*++arr = getchar()) && !isspace(*arr) && !ispunct(*arr))
 		continue;
+	if (*arr != '\n')
+		while (getchar() != '\n')
+			continue;
+	*arr = '\0';
 }
