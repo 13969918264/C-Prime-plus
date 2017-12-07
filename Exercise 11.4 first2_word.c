@@ -10,12 +10,12 @@ int main(void)
 {
 	char arr[MAX];
 	int i = 0;
-	puts("Enter a line but just read the first word");
-	first2(arr);
 
+	puts("Enter a line but just read the first word and the first word has a fixed maximum size.");
+	first2(arr, MAX);
 	while (i < strlen(arr))
-		putchar (arr[i]);
-	printf('\n');
+		putchar(arr[i++]);
+	printf("\n");
 
 	return 0;
 }
