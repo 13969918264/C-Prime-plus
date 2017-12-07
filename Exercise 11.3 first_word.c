@@ -14,8 +14,11 @@ int main(void)
 	first(arr);
 
 	while (i < strlen(arr))
+	{
 		putchar (arr[i]);
-	printf('\n');
+		i++;
+	}
+	puts("\n");
 
 	return 0;
 }
