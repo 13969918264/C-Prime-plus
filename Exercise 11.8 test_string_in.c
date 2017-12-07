@@ -12,7 +12,7 @@ int main(void)
 	char str1[MAX], str2[MAX];
 	int i;
 	puts("Enter the first string:");
-	for (i = 0; i < MAX &&(str1[i] = getchar()) != '\n' && str[i] != '\0'; i++)
+	for (i = 0; i < MAX &&(str1[i] = getchar()) != '\n' && str1[i] != '\0'; i++)
 		continue;
 	if (str1[i] == '\n')
 		str1[i] = '\0';
@@ -23,7 +23,7 @@ int main(void)
 			continue;
 	}
 	puts("Enter the second string.");
-	for (i = 0; i < MAX &&(str2[i] = getchar()) != '\n' && str[i] != '\0'; i++)
+	for (i = 0; i < MAX &&(str2[i] = getchar()) != '\n' && str2[i] != '\0'; i++)
 		continue;
 	if (str2[i] == '\n')
 		str2[i] = '\0';
