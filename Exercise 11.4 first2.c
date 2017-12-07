@@ -2,22 +2,31 @@
 	Name: 赵子豪(ZiHao Zhao)
 	Date: 2017年11月28日
 */
-/*	first2.c -- rewrite first.c in programming exercise 3	*/
+/*	first2.c	*/
+#include <stdio.h>
+#include <ctype.h>
 void first2(char * arr, int n)
 {
 	int i = 0;
 
-	while (i < n)
+	while ((arr[i] = getchar()) && isspace(arr[i]))
+		continue;			//	skip the leading whitespace.
+	if (!ispunct(arr[i]))
 	{
-		if ((*arr = getchar()) != ' ' && *arr != '\n' && *arr > 'A' && *arr < 'z')
-			arr++;
-		else
-		{
-			*arr = null;
-			break;
-		}
+		while (i++ < n - 1 && (arr[i] = getchar()) && !isspace(arr[i]) && !ispunct(arr[i]))
+			continue;
+		if (i >= n)
+			i--;
 		while (getchar() != '\n')
 			continue;
 	}
+	else
+	{
+		while (getchar() != '\n')
+			continue;
+		i++;
+	}
 
+	arr[i] = '\0';
 }
+2
