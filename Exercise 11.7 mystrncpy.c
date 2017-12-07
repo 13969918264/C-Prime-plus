@@ -7,7 +7,7 @@ char * mystrncpy(char * st1, const char * st2, int n)
 {
 	int i = 0;
 
-	while (i < n)
+	while (i < n && st2[i] != '\0')
 	{
 		st1[i] = st2[i];
 		i++;
