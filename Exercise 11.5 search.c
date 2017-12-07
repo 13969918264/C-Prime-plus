@@ -10,7 +10,8 @@ char * search(const char * st, int n)
 
 	while (*st != '\0' && *st++ != n)
 		continue;
-	first = --st;			//	discard the  'const' 
+	if (*st != '\0')
+		first = --st;			//	discard the  'const'
 
 	return first;
 }
