@@ -5,10 +5,11 @@
 /*	string_in.c	-- if the second parameter is a subset of the first parameter,
 				return the address in the first paremters	*/
 #include <string.h>
+#include <stddef.h>
 char * string_in(const char * st1, const char * st2)
 {
-	char * pt = null;
-	int i = j = 0;
+	char * pt = NULL;
+	int i = 0, j = 0;
 	int flag = 0;
 
 	for (i; i <= (strlen(st1) - strlen(st2)); i++)			//	st1
@@ -18,19 +19,23 @@ char * string_in(const char * st1, const char * st2)
 			if (*(st1 + i) == *(st2 + j))
 			{
 				if (j = 0)
-					pt= st1 + i;
+					pt = st1 + i;
 				flag = 1;
 				break;
 			}
 			else
 			{
-				pt= null;
+				pt = NULL;
 				flag = 0;
 			}
 		}
 		if (flag)			//	st1 and st2 change currently and continually
 			j++;
 		else
-			j= 0;
-		}
+			j = 0;
 	}
+
+	return pt;
+}
+
+
