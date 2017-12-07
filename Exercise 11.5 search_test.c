@@ -26,8 +26,14 @@ int main(void)
 		i--;
 	}
 	str[i] = '\0';
+	puts("You entered:");
+	puts(str);
 	puts("And now which alphabet do you search for?");
 	scanf("%c", &ch);
+	while (getchar() != '\n')
+		continue;
+	printf("You search %c.", ch);
+	putchar('\n');
 	if (search(str, ch))
 		puts("Congratulation! You find it.");
 	else
