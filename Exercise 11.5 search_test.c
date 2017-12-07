@@ -13,10 +13,19 @@ int main(void)
 	char str[MAX];
 	puts("Enter a line as you like.");
 	while (i < MAX)
-	{	str[i] = getchar();
+	{
+		str[i] = getchar();
 		if (str[i] == '\n')
 			break;
+		i++;
 	}
+	if (i >= MAX)
+	{
+		while (getchar() != '\n')
+			continue;
+		i--;
+	}
+	str[i] = '\0';
 	puts("And now which alphabet do you search for?");
 	scanf("%c", &ch);
 	if (search(str, ch))
