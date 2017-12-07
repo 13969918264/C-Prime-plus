@@ -4,4 +4,4 @@
 */
 /*	is_with_test.h	*/
 #define MAX 100
-bool is_within(char *, int);
+int is_within(char *, char);
