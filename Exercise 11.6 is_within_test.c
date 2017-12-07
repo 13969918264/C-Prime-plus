@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	char * str[MAX];
+	char str[MAX];
 	int i = 0;
 	char ch;
 	puts("Enter a line");
@@ -16,16 +16,21 @@ int main(void)
 		continue;
 	if (i >= MAX - 1)
 	{
-		str[MAX - 1] = '\0';
 		while (getchar() != '\n')
 			continue;
+		str[i] = '\0';
 	}
+	else
+		str[--i] = '\0';
+	puts(str);
 	puts("Enter a character as you like look for if it is in the string you entered");
 	ch = getchar();
 	while (getchar() != '\n')
 		continue;
+	putchar(ch);
+	putchar('\n');
 	if (is_within(str, ch))
-		puts("Congratulation.")
+		puts("Congratulation.");
 	else
 		puts("Bad luck.");
 
