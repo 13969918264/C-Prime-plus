@@ -8,20 +8,25 @@
 
 int main(void)
 {
-	char str1[MAX], str2[MAX];
+	char str1[MAX];
+	char str2[MAX];
 	int n;
 	int i = 0;
+
 	puts("Enter a line.");
-	while (i < MAX - 1 && (str1[i] = getchar()) != '\0')
+	while (i < MAX - 1 && (str1[i] = getchar()) != '\n')
 		i++;
-	if (i = MAX - 1)
+	if (i == MAX - 1)			//	there is relation expression, use '==' not '='
 	{
+		str1[MAX - 1] = '\0';
 		puts("What you entered excesses the maximum, we just input the first maximum values.");
 		while (getchar() != '\n')
 			continue;
-
 	}
-	str1[MAX - 1] = '\0';
+	else if (str1[i] == '\n')
+		str1[i] = '\0';
+	puts("You enter:");
+	puts(str1);
 	puts("What size do you want to copy?");
 	scanf("%d", &n);
 	while (getchar() != '\n')
@@ -29,13 +34,10 @@ int main(void)
 	if (n > MAX - 1)
 	{
 		n = MAX - 1;
-		puts("The number excess the maximum. Just output the first maximum character.")
+		puts("The number excess the maximum. Just output the first maximum character.");
 	}
-	mystrncpy(str2, str1, n);
-	puts("You enter:");
-	puts(str1);
 	puts("The copy is:");
-	puts(str2);
+	puts(mystrncpy(str2, str1, n));
 
 	return 0;
 }
