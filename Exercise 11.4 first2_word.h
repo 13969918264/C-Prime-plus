@@ -4,4 +4,4 @@
 */
 /*	first_word2.h	*/
 #define MAX 20
-void first2(char *);
+void first2(char *, int);
