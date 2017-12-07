@@ -3,7 +3,6 @@
 	Date: 2017年11月30日
 */
 /*	mystrncpy.c	*/
-#include <string.h>
 char * mystrncpy(char * st1, const char * st2, int n)
 {
 	int i = 0;
