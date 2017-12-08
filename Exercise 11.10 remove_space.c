@@ -4,11 +4,16 @@
 */
 /*	remove_space.c	*/
 #include <ctype.h>
+#include <string.h>
 void remove_space(char * st)
 {
-	int i;
+	int i, j;
 
-	for (i = 0; i < strlen(st) && isspace(*(st + i)); i++)
-		for (i; i < strlen(st); i++)
-			*(st + i) = *(st + i + 1);
+	for (i = 0; i < strlen(st); i++)
+		if (isspace(*(st + i)))
+		{
+			j = i;
+			for (j; j < strlen(st); j++)
+				*(st + j) = *(st + j + 1);
+		}
 }
