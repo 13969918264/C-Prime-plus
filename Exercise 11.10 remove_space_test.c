@@ -12,16 +12,13 @@ int main(void)
 	int i = 0;
 
 	puts("Enter a line.");
-	while (i < max)
-	{
-		if ((str[i] = getchar()) == '\n')
-			if ((str[++i] = getchar()) == '\n')
-			{
-				str[i] = '\0';
-				break;
-			}
-	}
-	str[MAX - 1];
+	while (i < MAX - 1 && (str[i] = getchar()) != '\n')
+		i++;
+	if (str[i] == '\n')
+		str[i] = '\0';
+	else
+		while (getchar() != '\n')
+			continue;
 	puts("You entered:");
 	puts(str);
 	remove_space(str);
