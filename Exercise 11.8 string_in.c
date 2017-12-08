@@ -7,5 +7,5 @@
 #include <string.h>
 char * string_in(const char * st1, const char * st2)
 {
-	return strstr(st1, st2);
+	return strstr(st1, st2);			//	I can not implement it by myself, and I will be back.
 }
