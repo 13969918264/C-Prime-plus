@@ -11,9 +11,6 @@ void remove_space(char * st)
 
 	for (i = 0; i < strlen(st); i++)
 		while (isspace(*(st + i)))
-		{
-			j = i;
-			for (j; j < strlen(st); j++)
+			for (j = i; j < strlen(st); j++)
 				*(st + j) = *(st + j + 1);
-		}
 }
