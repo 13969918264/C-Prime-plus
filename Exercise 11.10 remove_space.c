@@ -10,7 +10,7 @@ void remove_space(char * st)
 	int i, j;
 
 	for (i = 0; i < strlen(st); i++)
-		if (isspace(*(st + i)))
+		while (isspace(*(st + i)))
 		{
 			j = i;
 			for (j; j < strlen(st); j++)
