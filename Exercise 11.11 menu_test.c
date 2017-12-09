@@ -3,6 +3,7 @@
 	Date: 2017年12月04日
 */
 /* 	menu_test.c	*/
+/*	fail to run	*/
 #include <stdio.h>
 #include <string.h>
 #include "define_menu_test.h"
