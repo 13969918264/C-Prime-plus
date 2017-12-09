@@ -6,6 +6,7 @@
 int main(int argc, char * argv[])
 {
 	int i;
+
 	puts("Print the command-line arguments in reversed order.");
 	for (i = argc - 1; i > 0; i--)
 		puts(argv[i]);
