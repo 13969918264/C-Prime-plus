@@ -13,10 +13,11 @@ int main(void)
 	int lower_num = 0;
 	int punct_num = 0;
 	int digit_num = 0;
+
 	puts("Enter as you like, we will count it. EOF to quit");
 	while ((ch = getchar()) != EOF)
 	{
-		if (word_num == 0 && isspace(ch))
+		if (words_num == 0 && isspace(ch))
 			continue;
 		else if (isupper(ch))
 			upper_num++;
@@ -30,15 +31,15 @@ int main(void)
 		{
 			punct_num++;
 			if (lower_num != 0 || upper_num != 0 || digit_num != 0 || words_num)
-				word_num++;
+				words_num++;
 		}
 	}
 	puts("You entered:");
-	printf("The number of words is %d,
-			The number of uppercase is %d,
-			The number of lowercase is %d,
-			The number of digit is %d,
-			The number of punctuation is %d.",
+	printf("The number of words is %d,"
+		   "The number of uppercase is %d,"
+		   "The number of lowercase is %d,"
+		   "The number of digit is %d,"
+		   "The number of punctuation is %d.",
 			words_num, upper_num, lower_num, digit_num, punct_num);
 
 	return 0;
