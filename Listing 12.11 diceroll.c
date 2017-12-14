@@ -1,0 +1,41 @@
+/*
+	Name: 赵子豪(ZiHao Zhao)
+	Date: 2017年12月13日
+*/
+/*	diceroll.c	*/
+/*	compile with mandydice.c	*/
+#include <stdio.h>
+#include <stdlib.h>			/*	for library rand()	*/
+#include "diceroll.h"
+
+int roll_count = 0;			/*	external linkage	*/
+
+static int rollem(int sides)			/*	private to this file	*/
+{
+	int roll;
+
+	roll = rand() % sides + 1;
+	++roll_count;			/*	count function calls	*/
+
+	return roll;
+}
+
+
+
+int roll_n_dice(int dice, int sides)
+{
+	int d;
+	int total = 0;
+	if (sides < 2)
+	{
+		printf("Need at least 2 sides.\n");
+		return -2;
+	}
+	if (dice < 1)
+	{
+		printf("Need at least 1 die.\n");
+		return -1;
+	}
+
+	return total;
+}
