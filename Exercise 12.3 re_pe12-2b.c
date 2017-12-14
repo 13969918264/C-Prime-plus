@@ -9,15 +9,15 @@
 int main(void)
 {
 	int mode;
-	double * distance;
-	double * fuel;
+	double  distance;
+	double  fuel;
 
 	printf("Enter 0 for metric mode, 1 for US mode: ");
 	scanf("%d", &mode);
 	while (mode >= 0)
 	{
 		mode = set_mode(mode);
-		get_info(mode, distance, fuel);
+		get_info(mode, &distance, &fuel);
 		show_info(mode, distance, fuel);
 		printf("Enter 0 for metric mode, 1 for US mode");
 		printf(" (-1 to quit): ");
