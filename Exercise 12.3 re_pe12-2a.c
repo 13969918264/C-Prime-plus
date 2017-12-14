@@ -26,17 +26,17 @@ int set_mode(int n)
 
 
 
-void get_info(int n, double * distance, double * fuel)
+void get_info(int mode, double * distance, double * fuel)
 {
 
-	if (n == 0)
+	if (mode == 0)
 	{
 		puts("Enter distance traveled in kilometers: ");
-		scanf("%lf", *distance);
+		scanf("%lf", distance);
 		while (getchar() != '\n')
 			continue;
 		puts("Enter fuel consumed in liters: ");
-		scanf("%lf", *fuel);
+		scanf("%lf", fuel);
 		while (getchar() != '\n')
 			continue;
 	}
@@ -55,10 +55,10 @@ void get_info(int n, double * distance, double * fuel)
 
 
 
-void show_info(int n, double * fuel, double * distance)
+void show_info(int mode, double distance, double fuel)
 {
-	if (n == 0)
-		printf("Fuel consumption is %.2lf liters per 100 km.\n", *fuel / (*distance / 100));
+	if (mode == 0)
+		printf("Fuel consumption is %.2lf liters per 100 km.\n", fuel / (distance / 100));
 	else
-		printf("Fuel consumption is %.1lf miles per gallon.\n", *distance / *fuel);
+		printf("Fuel consumption is %.1lf miles per gallon.\n", distance / fuel);
 }
