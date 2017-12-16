@@ -2,12 +2,13 @@
 	Name: 赵子豪(ZiHao Zhao)
 	Date: 2017年12月16日
 */
-/*	random_and_sort.c -- generate 100 pseudonumber by calling the standard library and sort it	*/
+/*	random_and_sort.c -- generate 100 pseudonumber range 1 - 10 by calling the standard library and sort it	*/
 #include <stdio.h>
 #include <math.h>
 
 #define MAX 100
-
+#define MOD 10
+#define PLUS 1
 void print(int *, int);
 void sort(int *, int);
 
@@ -17,7 +18,7 @@ int main(void)
 	int arr[MAX];
 
 	for (i = 0; i < MAX; i++)
-		arr[i] = rand();
+		arr[i] = rand() % MOD + PLUS;
 	print(arr, MAX);
 	sort(arr, MAX);
 	print(arr, MAX);
