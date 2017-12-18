@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>			/*	for library srand()	*/
 #include <time.h>			/*	for time()	*/
-#include "diceroll.h"			/*	for roll_n_dice()	*/
+#include "diceroll1.h"			/*	for roll_n_dice()	*/
 /*	and for roll_count	*/
 int main(void)
 {
