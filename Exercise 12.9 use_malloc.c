@@ -46,16 +46,11 @@ int main(void)
 		{
 			temp[i] = '\0';
 			pt[count] = (char *) malloc((i + 1 - begin) * sizeof(char));
-			pt[count] = temp[begin];
-			count++;
+			pt[count] = &temp[begin];
+			puts(pt[count]);
 			begin = i + 1;
+			count++;
 		}
-	}
-
-	for (count = 0; count < num; count++)
-	{
-		puts(pt[count]);
-		free(pt[count]);
 	}
 	free(pt);
 
