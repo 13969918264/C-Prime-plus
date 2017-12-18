@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <string.h>
 
 #define MAX 100
 
@@ -15,7 +14,7 @@ int main(void)
 	int i = 0;
 	int count = 0;
 	int num;
-	char * pt[num];
+	char * (* pt);			//	a pointer to a pointer to char,
 	char temp[MAX];
 
 	printf("How many words do you wish to enter?: ");
@@ -23,7 +22,7 @@ int main(void)
 
 	while (getchar() != '\n')
 		continue;
-	pt = (char *) malloc(num * sizeof(char));
+	pt = (char * *) malloc(num * sizeof(char *));			// choose the right type
 	printf("Enter %d words now!\n", num);
 	while (count < num)
 	{
@@ -39,14 +38,21 @@ int main(void)
 		}
 		else
 			temp[i] = '\0';
+		puts(temp);
 		pt[count] = (char *) malloc((i + 1) * sizeof(char));
-		strcpy(pt[count], const temp);
+		pt[count] = temp;
+
 		count++;
 	}
 	while (getchar() != '\n')
 		continue;
+/*
 	for (count = 0; count < num; count++)
+	{
 		puts(pt[count]);
-
+		free(pt[count]);
+	}
+	free(pt);
+*/
 	return 0;
 }
