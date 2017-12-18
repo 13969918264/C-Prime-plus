@@ -12,6 +12,7 @@
 int main(void)
 {
 	int i = 0;
+	int begin;
 	int count = 0;
 	int num;
 	char * (* pt);			//	a pointer to a pointer to char,
@@ -24,35 +25,39 @@ int main(void)
 		continue;
 	pt = (char * *) malloc(num * sizeof(char *));			// choose the right type
 	printf("Enter %d words now!\n", num);
-	while (count < num)
-	{
-		while (isspace(temp[i] = getchar()) || ispunct(temp[i]))
-			continue;
-		i++;
-		while (i < MAX && (isspace(temp[i] = getchar()) || ispunct(temp[i])))
-			i++;
-		if (i >= MAX)
-		{
-			printf("Your words are too long, exceeding %d alpahbets, the rest will be as anoter word", MAX);
-			temp[--i] = '\0';
-		}
-		else
-			temp[i] = '\0';
-		puts(temp);
-		pt[count] = (char *) malloc((i + 1) * sizeof(char));
-		pt[count] = temp;
-
-		count++;
-	}
-	while (getchar() != '\n')
+	while (isspace(temp[i] = getchar()) || ispunct(temp[i]))
+		continue;			//	discard the whitespace before and punctuation the first alphabet
+	while (i++ < MAX &&(temp[i] = getchar()) != '\n')
 		continue;
-/*
+	if (i >= MAX)
+	{
+		printf("Your words are too long,"
+				" exceeding %d alpahbets,"
+				" the rest will be as anoter word",
+				MAX);
+		temp[MAX - 1] = '\0';
+	}
+	else
+		temp[i] = '\0';
+	puts(temp);
+	for (i = 0, begin = i; count < num; i++)
+	{
+		if (isspace(temp[i]) || ispunct(temp[i]))
+		{
+			temp[i] = '\0';
+			pt[count] = (char *) malloc((i + 1 - begin) * sizeof(char));
+			pt[count] = temp[begin];
+			count++;
+			begin = i + 1;
+		}
+	}
+
 	for (count = 0; count < num; count++)
 	{
 		puts(pt[count]);
 		free(pt[count]);
 	}
 	free(pt);
-*/
+
 	return 0;
 }
