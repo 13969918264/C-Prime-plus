@@ -18,7 +18,8 @@ int main(void)
 
 	puts("Enter the name of the file to be processed:");
 	scanf("%80s", file);
-	if ((fp = fopen(file, "rb")) == NULL)
+	if ((fp = fopen(file, "rb")) == NULL)			//	the first paramentr of fopen()
+		//	is a address of a string containing the filen name.
 	{
 		printf("reverse can't open %s\n", file);
 		exit(EXIT_FAILURE);
