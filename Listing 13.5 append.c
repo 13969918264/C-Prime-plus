@@ -34,7 +34,7 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 	puts("Enter name of first source file (empty line to quit):");
-	while (s_gets(file_src, SLEN) && file_src[0] != '\n')
+	while (s_gets(file_src, SLEN) && file_src[0] != '\0')
 	{
 		if (strcmp(file_src, file_app) == 0)
 			fputs("Can't append file to itself.\n", stderr);
