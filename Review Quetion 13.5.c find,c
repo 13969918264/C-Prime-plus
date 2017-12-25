@@ -1,0 +1,53 @@
+/*
+	Name: 赵子豪(ZiHao Zhao)
+	Date: 2017年12月25日
+*/
+/*	find.c -- find a character in the second command-line argument
+	from the file indicated by the third argument.	*/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define SIZE 81
+
+int main(int argc, char * argv[])
+{
+	char ch;
+	long i;
+	int count = 0;
+	long last;
+	FILE * fp;
+
+	if (argc < 3)
+		fputs("Command-line arguments is less or none.\nbye.\n",stdout);
+	else
+	{
+		if ((fp = fopen(argv[2], "r")) == NULL)
+		{
+			fprintf(stderr, "Can't open %s.\n", argv[2]);
+			exit(EXIT_FAILURE);
+		}
+		while ((ch = getc(fp)) != EOF)
+		{
+			if (ch == *argv[1])
+			{
+				count++;
+				last = fseek(fp, 0L, SEEK_CUR);
+				for (i = 1; (ch = getc(fp)) != '\n'; i++)
+				{
+					fseek(fp, -i, SEEK_CUR);	// move file pointer left one per operation.
+				}
+				fseek(fp, 1L, SEEK_CUR);			//	set the file pointer point the place after current place one
+				for (i = 1;(ch = getc(fp)) != '\n'; i++)
+				{
+					putc(ch,stdout);
+					fseek(fp, i, SEEK_CUR);
+				}
+				fseek(fp, last + 1L, SEEK_SET);			//	set the file pointer point to  the place after the character found
+			}
+		}
+		fclose(fp);
+	}
+
+	return 0;
+}
