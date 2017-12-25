@@ -8,8 +8,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define SIZE 81
-
 int main(int argc, char * argv[])
 {
 	char ch;
@@ -31,19 +29,8 @@ int main(int argc, char * argv[])
 		{
 			if (ch == *argv[1])
 			{
-				count++;
-				last = fseek(fp, 0L, SEEK_CUR);
-				for (i = 1; (ch = getc(fp)) != '\n'; i++)
-				{
-					fseek(fp, -i, SEEK_CUR);	// move file pointer left one per operation.
-				}
-				fseek(fp, 1L, SEEK_CUR);			//	set the file pointer point the place after current place one
-				for (i = 1;(ch = getc(fp)) != '\n'; i++)
-				{
-					putc(ch,stdout);
-					fseek(fp, i, SEEK_CUR);
-				}
-				fseek(fp, last + 1L, SEEK_SET);			//	set the file pointer point to  the place after the character found
+				putc(ch, stdout);
+				putchar('\n');
 			}
 		}
 		fclose(fp);
