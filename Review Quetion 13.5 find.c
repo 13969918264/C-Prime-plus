@@ -8,13 +8,13 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define SIZE 256
+
 int main(int argc, char * argv[])
 {
 	char ch;
-	long i;
-	int count = 0;
-	long last;
 	FILE * fp;
+	char pt[SIZE];
 
 	if (argc < 3)
 		fputs("Command-line arguments is less or none.\nbye.\n",stdout);
