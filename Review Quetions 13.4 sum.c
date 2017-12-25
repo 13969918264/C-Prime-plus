@@ -24,7 +24,8 @@ int main(int argc, char * argv[])
 	else
 	{
 		fputs("Enter the filename.\n", stdout);
-		fgets(filename, SIZE - 1, stdin);
+		fgets(filename, SIZE, stdin);
+		filename[SIZE - 1] = '\0';
 		while (filename[i] != '\n')
 			i++;
 		filename[i] = '\0';			// the arrary contains the file name must be a string, so it ends with '\0'.
