@@ -12,9 +12,8 @@
 
 int main(int argc, char * argv[])
 {
-	char ch;
 	FILE * fp;
-	char pt[SIZE];
+	char str[SIZE];
 
 	if (argc < 3)
 		fputs("Command-line arguments is less or none.\nbye.\n",stdout);
@@ -25,13 +24,11 @@ int main(int argc, char * argv[])
 			fprintf(stderr, "Can't open %s.\n", argv[2]);
 			exit(EXIT_FAILURE);
 		}
-		while ((ch = getc(fp)) != EOF)
+		while (fgets(str, SIZE, fp) != NULL)
+		/*	fgets() reads character to the end of a line, it will stop.	*/
 		{
-			if (ch == *argv[1])
-			{
-				putc(ch, stdout);
-				putchar('\n');
-			}
+			if (strchr(str, *argv[1]))
+				fputs(str, stdout);
 		}
 		fclose(fp);
 	}
