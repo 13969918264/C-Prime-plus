@@ -39,11 +39,12 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 	if (copy(fpw, fpr))
-		fputs("Congratulation! copy successfully", stdout);
+		fputs("Congratulation! copy successfully\n", stdout);
 	else
 		fputs("Can't open the file.", stderr);
 	fclose(fpr);
 	fclose(fpw);
+	puts("Now let us display it in screen");
 	if ((fpr = fopen(target, "rb")) == NULL)
 	{
 		fprintf(stderr, "Can't open %s.\n", target);
