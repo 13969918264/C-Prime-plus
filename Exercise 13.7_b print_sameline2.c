@@ -45,12 +45,21 @@ int main(int argc, char * argv[])
 	}
 	while (fgets(temp1, MAX, fp1) != NULL && fgets(temp2, MAX, fp2) != NULL)
 	{
+	/*	two means, which one is ok.*/
+	/*
 		strcat(temp1, temp2);
 		for (i = 0; temp1[i] != '\n'; i++)
 			continue;
 		if (temp1[i] == '\n')
 			temp1[i] = '\t';
 		fputs(temp1, stdout);
+	*/
+		for (i = 0; temp1[i] != '\n'; i++)
+			continue;
+		if (temp1[i] == '\n')
+			temp1[i] = '\t';
+		fputs(temp1, stdout);
+		fputs(temp2, stdout);
 	}
 	if (fgets(temp1, MAX, fp1) == NULL)
 	{
