@@ -13,9 +13,10 @@ int main(void)
 {
 	FILE *fp;
 	char words[MAX];
-	int count = 0;
+	int count[MAX];
 	long last;
 	long i;
+	int number = 0;
 
 	if ((fp = fopen("wordy", "ab+")) == NULL)
 	{
@@ -25,8 +26,11 @@ int main(void)
 	fseek(fp, 0L, SEEK_END);
 	last = ftell(fp);
 	rewind(fp);
-	for (i = 0; i < last && (fscanf(fp, "%d", &count) == 1); i++)
-		fseek(fp, 1L, SEEK_CUR);
+	for (i = 0; i < last && (fscanf(fp, "%s", count) == 1); i++)
+	{
+		if (isdigit(count[0]))
+			number = count[0];
+	}
 	fclose(fp);
 	if ((fp = fopen("wordy", "ab+")) == NULL)
 	{
@@ -37,8 +41,8 @@ int main(void)
 	puts("key at the beginning of a line to terminate.");
 	while ((fscanf(stdin, "%40s", words) == 1) && (words[0] != '#'))
 	{
-		count++;
-		fprintf(fp, "%d: %s\n", count, words);
+		number++;
+		fprintf(fp, "%d: %s\n", number, words);
 	}
 	puts("File contents:");
 	rewind(fp);			/*	go back to beginning of file	*/
