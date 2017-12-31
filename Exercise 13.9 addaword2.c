@@ -3,6 +3,7 @@
 	Date: 2017年12月31日
 */
 /*	addaword2.c -- uses fprintf(), fscanf(), and rewind() and numbered each word	*/
+/*	I give up to this problems, I will do it one day.	*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,14 +14,19 @@ int main(void)
 	FILE *fp;
 	char words[MAX];
 	int count = 0;
+	long last;
+	long i;
 
 	if ((fp = fopen("wordy", "ab+")) == NULL)
 	{
 		fprintf(stdout, "Can't open \"wordy\"file.");
 		exit(EXIT_FAILURE);
 	}
-	while (fscanf(fp, "%d", &count) == 1)
-		continue;
+	fseek(fp, 0L, SEEK_END);
+	last = ftell(fp);
+	rewind(fp);
+	for (i = 0; i < last && (fscanf(fp, "%d", &count) == 1); i++)
+		fseek(fp, 1L, SEEK_CUR);
 	fclose(fp);
 	if ((fp = fopen("wordy", "ab+")) == NULL)
 	{
