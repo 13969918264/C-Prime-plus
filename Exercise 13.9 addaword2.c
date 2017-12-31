@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MAX 41
 
@@ -13,8 +14,16 @@ int main(void)
 {
 	FILE *fp;
 	char words[MAX];
-	static number = 1;
+	int count = 0;
 
+	if ((fp = fopen("wordy", "r")) == NULL)
+	{
+		fprintf(stdout, "Can't open \"wordy\"file.");
+		exit(EXIT_FAILURE);
+	}
+	fseek (fp, 0L, SEEK_END);
+	fscanf(fp, "%d", &count);
+	fclose(fp);
 	if ((fp = fopen("wordy", "a+")) == NULL)
 	{
 		fprintf(stdout, "Can't open \"wordy\"file.");
@@ -23,7 +32,10 @@ int main(void)
 	puts("Enter words to add to the file; press the #");
 	puts("key at the beginning of a line to terminate.");
 	while ((fscanf(stdin, "%40s", words) == 1) && (words[0] != '#'))
-		fprintf(fp, "line %d: %s\n", number++, words);
+	{
+		count++;
+		fprintf(fp, "%d: %s\n", count, words);
+	}
 	puts("File contents:");
 	rewind(fp);			/*	go back to beginning of file	*/
 	while (fscanf(fp, "%s", words) == 1)
