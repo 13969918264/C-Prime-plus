@@ -14,6 +14,7 @@ int main(void)
 {
 	FILE *fp;
 	char words[MAX];
+	int number = 0;
 	int count = 0;
 
 	if ((fp = fopen("wordy", "r")) == NULL)
@@ -21,8 +22,11 @@ int main(void)
 		fprintf(stdout, "Can't open \"wordy\"file.");
 		exit(EXIT_FAILURE);
 	}
-	fseek (fp, 0L, SEEK_END);
-	fscanf(fp, "%d", &count);
+	if (getc(fp) != EOF)
+	{
+		fseek(fp, 0L, SEEK_END);
+		fscanf(fp, "%d", &count);
+	}
 	fclose(fp);
 	if ((fp = fopen("wordy", "a+")) == NULL)
 	{
