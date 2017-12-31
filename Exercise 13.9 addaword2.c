@@ -6,29 +6,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
-
 #define MAX 41
 
 int main(void)
 {
 	FILE *fp;
 	char words[MAX];
-	int number = 0;
 	int count = 0;
 
-	if ((fp = fopen("wordy", "r")) == NULL)
+	if ((fp = fopen("wordy", "ab+")) == NULL)
 	{
 		fprintf(stdout, "Can't open \"wordy\"file.");
 		exit(EXIT_FAILURE);
 	}
-	if (getc(fp) != EOF)
-	{
-		fseek(fp, 0L, SEEK_END);
-		fscanf(fp, "%d", &count);
-	}
+	while (fscanf(fp, "%d", &count) == 1)
+		continue;
 	fclose(fp);
-	if ((fp = fopen("wordy", "a+")) == NULL)
+	if ((fp = fopen("wordy", "ab+")) == NULL)
 	{
 		fprintf(stdout, "Can't open \"wordy\"file.");
 		exit(EXIT_FAILURE);
