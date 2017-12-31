@@ -45,22 +45,22 @@ int main(int argc, char * argv[])
 	while (fgets(temp1, MAX, fp1) != NULL && fgets(temp2, MAX, fp2) != NULL)
 	{
 		if (temp1)
-			puts(temp1);
+			fputs(temp1, stdout);
 		if (temp2)
-			puts(temp2);
+			fputs(temp2, stdout);
 	}
 	if (fgets(temp1, MAX, fp1) == NULL)
 	{
 		fprintf(stdout, "%s is to the end.\n", file1);
 		while (fgets(temp2, MAX, fp2) != NULL)
-			puts(temp2);
+			fputs(temp2, stdout);
 		fprintf(stdout, "%s is to the end.\n", file2);
 	}
 	else
 	{
 		fprintf(stdout, "%s is to the end.", file2);
 		while (fgets(temp1, MAX, fp1) != NULL)
-			puts(temp1);
+			fputs(temp1, stdout);
 		fprintf(stdout, "%s is to the end.", file1);
 	}
 	if ((fclose(fp1) != 0) || (fclose(fp2)))
