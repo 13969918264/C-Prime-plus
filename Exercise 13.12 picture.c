@@ -66,8 +66,22 @@ int main(void)
 	if (fclose(fpr) != 0)
 		fprintf(stderr, "Error closing file.\n");
 
+	/*	display array */
+	puts("display digital array");
+	for (i = 0; i < ROWS; i++)
+	{
+		if (i != 0 && i % 30 == 0)
+			printf("\n");
+		for (j = 0; j < COLS - 1; j++)
+			printf("%d", digit[i][j]);
+	}
+
 	/*	copy the digit to str	*/
 	copy(str, digit) ? fputs("Successfully copy.", stdout) : fputs("bad luck", stderr);
+
+	/*	display str	*/
+	for (i = 0; i < ROWS; i++)
+		puts(str[i]);
 
 	/*	display the picture in a text	*/
 	puts("Enter the name of file which store the picture.");
