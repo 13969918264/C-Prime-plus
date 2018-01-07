@@ -36,7 +36,7 @@ int main(void)
 	}
 	for (i = 0; i < ROWS * (COLS - 1); i++)
 	{
-		if (i % 30 == 0)
+		if (i != 0 && i % 30 == 0)
 			putc('\n', fpw);
 		fprintf(fpw, "%d ", rand() % 10);
 	}
