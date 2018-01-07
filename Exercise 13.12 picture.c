@@ -166,7 +166,7 @@ int display(char (* st) [COLS], FILE * out)
 	int i;
 
 	for  (i = 0; i < ROWS; i++, st++)
-		fputs(st, out);
+		fputs(*st, out);
 	i == ROWS ? (flag = 1) : flag;
 
 	return flag;
