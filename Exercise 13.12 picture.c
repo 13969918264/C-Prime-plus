@@ -12,7 +12,7 @@
 #define ROWS 20
 #define COLS 31
 #define SIZE 31			/*	the max size of the file name	*/
-
+#define OFFSET 48			/*	number in ascii	*/
 char * s_gets(char *, int);			/*	read a string with size given	*/
 int display(char (*) [COLS], FILE *);			/*	display the strings to a file	*/
 int copy(char (*) [COLS], int (*) [COLS - 1]);				/*	copy a int array to a string	*/
@@ -56,7 +56,7 @@ int main(void)
 		while (j < COLS - 1)
 		{
 			if((ch = getc(fpr)) != EOF && isdigit(ch))
-				digit[i][j] = ch;
+				digit[i][j] = ch - OFFSET;
 			else
 				continue;
 			j++;
@@ -73,11 +73,11 @@ int main(void)
 		if (i != 0 && i % 30 == 0)
 			printf("\n");
 		for (j = 0; j < COLS - 1; j++)
-			printf("%d", digit[i][j]);
+			printf("%d ", digit[i][j]);
 	}
 
 	/*	copy the digit to str	*/
-	copy(str, digit) ? fputs("Successfully copy.", stdout) : fputs("bad luck", stderr);
+	copy(str, digit) ? fputs("\nSuccessfully copy.\n", stdout) : fputs("bad luck", stderr);
 
 	/*	display str	*/
 	for (i = 0; i < ROWS; i++)
