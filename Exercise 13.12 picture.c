@@ -41,6 +41,7 @@ int main(void)
 		putc(rand() % 10, fpw);
 		putc(' ', fpw);
 	}
+	puts("Done!");
 	if (fclose(fpw) != 0)
 		fprintf(stderr, "Error closing file.\n");
 
@@ -62,6 +63,7 @@ int main(void)
 			j++;
 		}
 	}
+	puts("read all.");
 	if (fclose(fpr) != 0)
 		fprintf(stderr, "Error closing file.\n");
 
@@ -152,7 +154,7 @@ int copy(char (* str)[COLS], int (* digit)[COLS - 1])
 		}
 		str[i][COLS] = '\0';
 	}
-	//strlen(str) == ROWS ? (flag = 1) : flag;
+	i == ROWS ? (flag = 1) : flag;
 
 	return flag;
 }
