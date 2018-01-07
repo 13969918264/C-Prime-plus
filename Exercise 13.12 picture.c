@@ -117,7 +117,8 @@ int copy(char (* str)[COLS], int (* digit)[COLS - 1])
 	{
 		for (j = 0; j < COLS - 1; j++)
 		{
-			switch(num = digit[i][j])
+			num = digit[i][j];
+			switch(num)
 			{
 				case 0 :
 						str[i][j] = ')';
