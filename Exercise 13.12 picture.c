@@ -34,12 +34,12 @@ int main(void)
 		fprintf(stderr, "Can't open %s as a write file.\n", name);
 		exit(EXIT_FAILURE);
 	}
-	for (i = 0; i < ROWS * COLS; i++)
+	for (i = 0; i < ROWS * (COLS - 1); i++)
 	{
 		if (i % 30 == 0)
 			putchar('\n');
 		putc(rand() % 10, fpw);
-		putchar(' ');
+		putc(' ', fpw);
 	}
 	if (fclose(fpw) != 0)
 		fprintf(stderr, "Error closing file.\n");
