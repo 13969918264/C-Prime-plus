@@ -14,15 +14,15 @@
 #define SIZE 31			/*	the max size of the file name	*/
 
 char * s_gets(char *, int);			/*	read a string with size given	*/
-int display(char * [COLS]; FILE *);			/*	display the strings to a file	*/
-int copy(char * [COLS], int * [COLS - 1]);				/*	copy a int array to a string	*/
+int display(char (*) [COLS], FILE *);			/*	display the strings to a file	*/
+int copy(char (*) [COLS], int (*) [COLS - 1]);				/*	copy a int array to a string	*/
 
 int main(void)
 {
 	FILE * fpr, * fpw;
-	int digit[ROWS][COLS - 1];
 	int i, j;
-	char str[ROW][COLS];
+	int digit[ROWS][COLS - 1];
+	char str[ROWS][COLS];
 	char name[SIZE];
 	char ch;
 
@@ -34,7 +34,7 @@ int main(void)
 		fprintf(stderr, "Can't open %s. as a write file.\n", name);
 		exit(EXIT_FAILURE);
 	}
-	for (i = 0; i < ROW * COLS; i++)
+	for (i = 0; i < ROWS * COLS; i++)
 	{
 		if (i % 30 == 0)
 			putchar('\n');
@@ -55,8 +55,8 @@ int main(void)
 		j = 0;
 		while (j < COLS - 1)
 		{
-			if ((ch =getc(fpr)) != EOF && isdigit(ch))
-				putc(ch, digit[i][j]);
+			if((ch = getc(fpr)) != EOF && isdigit(ch))
+				digit[i][j] = ch;
 			else
 				continue;
 			j++;
@@ -70,7 +70,7 @@ int main(void)
 
 	/*	display the picture in a text	*/
 	puts("Enter the name of file which store the picture.");
-	s_gets(picture, SIZE);
+	s_gets(name, SIZE);
 	if ((fpw = fopen(name, "wb")) == NULL)
 	{
 		fprintf(stderr, "Can't open %s as a write file.\n", name);
@@ -107,7 +107,7 @@ char * s_gets(char * st, int n)
 
 
 /*	copy a int array to a sring	*/
-int copy(char (* str)[COLS], int digit[][COLS])
+int copy(char (* str)[COLS], int (* digit)[COLS - 1])
 {
 	int flag = 0;
 	int i, j, num;
@@ -152,7 +152,7 @@ int copy(char (* str)[COLS], int digit[][COLS])
 		}
 		str[i][COLS] = '\0';
 	}
-	strlen(str) == ROWS ? (flag = 1) : flag;
+	//strlen(str) == ROWS ? (flag = 1) : flag;
 
 	return flag;
 }
@@ -160,13 +160,13 @@ int copy(char (* str)[COLS], int digit[][COLS])
 
 
 /*	display a picture which represented by strings to a file	*/
-int display(char (* st)[COLS], file out)
+int display(char (* st) [COLS], FILE * out)
 {
 	int flag = 0;
 	int i;
 
-	for  (i = 0; i < ROWS; i++)
-		fputs(st++, out);
+	for  (i = 0; i < ROWS; i++, st++)
+		fputs(st, out);
 	i == ROWS ? (flag = 1) : flag;
 
 	return flag;
