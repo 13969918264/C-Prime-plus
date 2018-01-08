@@ -40,9 +40,22 @@ int main(void)
 			putc('\n', fpw);
 		fprintf(fpw, "%d ", rand() % 10);
 	}
-	puts("Done!");
+	puts("\nWrite all into the file!\n");
 	if (fclose(fpw) != 0)
 		fprintf(stderr, "Error closing file.\n");
+
+	/*	display the content of the file	*/
+	puts("Display the file.\n");
+	if ((fpr = fopen(name, "rb")) == NULL)
+	{
+		fprintf(stderr, "Can't open %s.\n", name);
+		exit(EXIT_FAILURE);
+	}
+	while ((ch = getc(fpr)) != EOF)
+		putc(ch, stdout);
+	puts("\nDisplay all of the file!\n");
+	if (fclose(fpr) != 0)
+		fputs("Error closing file.\n", stderr);
 
 	/*	read a file to a array	*/
 	if ((fpr = fopen(name, "rb")) == NULL)
@@ -62,26 +75,29 @@ int main(void)
 			j++;
 		}
 	}
-	puts("read all.");
+	puts("Read all of the file into an array!\n");
 	if (fclose(fpr) != 0)
 		fprintf(stderr, "Error closing file.\n");
 
 	/*	display array */
-	puts("display digital array");
+	puts("Display digital array");
 	for (i = 0; i < ROWS; i++)
 	{
-		if (i != 0 && i % 30 == 0)
-			printf("\n");
 		for (j = 0; j < COLS - 1; j++)
 			printf("%d ", digit[i][j]);
+		putchar('\n');
 	}
+	puts("Display all of the array!");
 
 	/*	copy the digit to str	*/
-	copy(str, digit) ? fputs("\nSuccessfully copy.\n", stdout) : fputs("bad luck", stderr);
+	copy(str, digit) ? fputs("\nSuccessfully copy.\n", stdout) : fputs("Bad luck", stderr);
+	puts("Copy all of the array to a string.\n");
 
 	/*	display str	*/
+	puts("Display the string.");
 	for (i = 0; i < ROWS; i++)
 		puts(str[i]);
+	puts("Display all of the string.\n");
 
 	/*	display the picture in a text	*/
 	puts("Enter the name of file which store the picture.");
@@ -94,6 +110,19 @@ int main(void)
 	display(str, fpw) ? fputs("Successfully display.\n", stdout) : fputs("Bad luck.\n", stderr);
 	if (fclose(fpw) != 0)
 		fprintf(stderr, "Error closing file.\n");
+
+	/*	Display the picture file	*/
+	puts("\nDisplay the file.");
+	if ((fpr = fopen(name, "rb")) == NULL)
+	{
+		fprintf(stderr, "Can't open %s.\n", name);
+		exit(EXIT_FAILURE);
+	}
+	while ((ch = getc(fpr)) != EOF)
+		putc(ch, stdout);
+	puts("Display all of the file!");
+	if (fclose(fpr) != 0)
+		fputs("Error closing file.\n", stderr);
 
 	return 0;
 }
@@ -182,7 +211,10 @@ int display(char (* st) [COLS], FILE * out)
 	int i;
 
 	for  (i = 0; i < ROWS; i++, st++)
+	{
 		fputs(*st, out);
+		fputs("\n", out);
+	}
 	i == ROWS ? (flag = 1) : flag;
 
 	return flag;
