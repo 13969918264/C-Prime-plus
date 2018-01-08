@@ -13,6 +13,7 @@
 #define COLS 31
 #define SIZE 31			/*	the max size of the file name	*/
 #define OFFSET 48			/*	number in ascii	*/
+
 char * s_gets(char *, int);			/*	read a string with size given	*/
 int display(char (*) [COLS], FILE *);			/*	display the strings to a file	*/
 int copy(char (*) [COLS], int (*) [COLS - 1]);				/*	copy a int array to a string	*/
