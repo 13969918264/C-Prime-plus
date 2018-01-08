@@ -213,7 +213,7 @@ int display(char (* st) [COLS], FILE * out)
 	for  (i = 0; i < ROWS; i++, st++)
 	{
 		fputs(*st, out);
-		fputs("\n", out);
+		putc('\n', out);
 	}
 	i == ROWS ? (flag = 1) : flag;
 
