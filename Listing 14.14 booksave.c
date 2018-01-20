@@ -2,6 +2,7 @@
 	Name: 赵子豪(ZiHao Zhao)
 	Date: 2018年1月20日
 */
+/*	The output of the progarm is different from the text book when it run in Windows system	*/
 /*	booksave.c -- saves structure contents in a file	*/
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,7 +28,7 @@ int main(void)
 	FILE * pbooks;
 	int size = sizeof(struct book);
 
-	if ((pbooks = fopen("book.bat", "a+b")) == NULL)
+	if ((pbooks = fopen("book.dat", "a+b")) == NULL)
 	{
 		fputs("Can't open the book.dat file\n",stderr);
 		exit(1);
@@ -66,7 +67,7 @@ int main(void)
 	{
 		puts("Here is the list of your books:");
 		for (index = 0; index < count; index++)
-			printf("%s by %s：$%.2f\n", library[index].title, library[index].author, library[index].value);
+			printf("%s by %s: $%.2f\n", library[index].title, library[index].author, library[index].value);
 		fwrite(&library[filecount], size, count - filecount, pbooks);
 	}
 	else
