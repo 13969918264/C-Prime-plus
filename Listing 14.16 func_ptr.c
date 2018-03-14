@@ -31,7 +31,7 @@ int main(void)
 	puts("Enter a string (empty line to quit):");
 	while (s_gets(line, LEN) != NULL && line[0] != '\0');
 	{
-		puts("a");
+		puts("print the input");
 		puts(line);
 		while ((choice = showmenu()) != 'n')
 		{
