@@ -31,9 +31,12 @@ int main(void)
 	puts("Enter a string (empty line to quit):");
 	while (s_gets(line, LEN) != NULL && line[0] != '\0');
 	{
+		puts(line);
 		while ((choice = showmenu()) != 'n')
 		{
-			switch(choice)			//	switch sets pointer
+			putchar(choice);
+			putchar('\n');
+			switch(choice	)			//	switch sets pointer
 			{
 				case 'u'	: pfun = ToUpper;
 							break;
@@ -45,10 +48,12 @@ int main(void)
 							break;
 			}
 			strcpy(copy, line);			//	make copy for show()
+			puts(copy);
 			show(pfun, copy);			//	use selected function
 		}
 		puts("Enter a string (empty line to quit)");
 	}
+	getchar();
 	puts("Bye!");
 
 	return 0;
