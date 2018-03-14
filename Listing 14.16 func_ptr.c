@@ -3,6 +3,7 @@
 	Date: 2018年3月14日
 */
 //	func_ptr.c -- uses function pointers
+//	run but incorrect, some bugs appear in read input. it can't read the first sentence.
 
 #include <stdio.h>
 #include <string.h>
