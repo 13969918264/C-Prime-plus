@@ -3,6 +3,7 @@
 	Date: 2018年3月14日
 */
 //	func_ptr.c -- uses function pointers
+//	I can't run it on Windows 10, it can't read the first line i entered.
 
 #include <stdio.h>
 #include <string.h>
