@@ -103,7 +103,7 @@ int main(void)
 	int index = 0;
 
 	printf("Please enter the spelled-out name of a month.\n");
-	while (s_gets(name, NAMESIZE) != NULL && name[0] != '\0')
+	while (s_gets(name, NAMESIZE) != NULL)
 	{
 		while (index < MAXMONTH)
 			if (strcmp(name, monthInfo[index++].name) == 0)
@@ -131,7 +131,8 @@ char * s_gets(char * st, int n)
 	ret_val = fgets(st, n, stdin);
 	if (ret_val)
 	{
-		if (find = strchr(st, '\n'))
+		find = strchr(st, '\n');
+		if (find)
 			*find = '\0';
 		else
 			while (getchar() != '\n')
