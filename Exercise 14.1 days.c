@@ -94,7 +94,7 @@ struct month monthInfo[MAXMONTH] = {
 };
 
 char * s_gets(char *, int);
-int caluclate(struct month **, char *);
+int caluclate(const struct month [], char *);
 
 int main(void)
 {
@@ -106,6 +106,11 @@ int main(void)
 	{
 		puts(name);
 		sum_days = calculate(monthInfo, name);
+		if (sum_days == 0)
+		{
+			printf("%s is not a name of any month, please enter the right name.\n");
+			continue;
+		}
 		printf("up to %s is %d days.\n", name, sum_days);
 		printf("the next month name? newline to quit\n");
 	}
@@ -136,9 +141,16 @@ char * s_gets(char * st, int n)
 
 
 
-int calculate(struct month * mon[], char * st)
+int calculate(const struct month  mon[], char * st)
 {
 	int sum_days = 0;
+	int index = 0;
+
+	while (strcmp(mon[index++].name, st) != 0)
+		continue;
+	if (index < MAXMONTH)
+		while (index-- > 0)
+			sum_days += mon[index].days;
 
 	return sum_days;
 }
