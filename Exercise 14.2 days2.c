@@ -132,11 +132,12 @@ int main(void)
 				printf("Enter the name of a month.\n");
 				while (s_gets(monthName, NAMESIZE))
 				{
-					while (index < MAXMONTH && strcmp(monthName, monthInfo[index].name) != 0)
+					while (index < MAXMONTH && !strcmp(monthName, monthInfo[index].name))
 						index++;
 					if (index ==  MAXMONTH)
 					{
 						printf("Enter the right name of a month\n");
+						index = 0;
 						continue;
 					}
 				}
@@ -145,7 +146,7 @@ int main(void)
 				printf("Enter the abbrevation of the month.");
 				while (s_gets(monthName, ABBRE))
 				{
-					while (index < MAXMONTH && strcmp(monthName, monthInfo[index].abbre) != 0)
+					while (index < MAXMONTH && !strcmp(monthName, monthInfo[index].abbre))
 						index++;
 					if (index =  MAXMONTH)
 					{
@@ -188,7 +189,7 @@ char * s_gets(char * st, int n)
 	if (ret_val)
 	{
 		if (find = strchr(st, '\n'))
-			*find = '\n';
+			*find = '\0';
 		else
 			while (getchar() != '\n')
 				continue;
@@ -196,3 +197,4 @@ char * s_gets(char * st, int n)
 
 	return ret_val;
 }
+v
