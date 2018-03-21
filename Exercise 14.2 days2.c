@@ -140,6 +140,8 @@ int main(void)
 						index = 0;
 						continue;
 					}
+					else
+						break;
 				}
 				break;
 		case 3 :
@@ -153,6 +155,8 @@ int main(void)
 						printf("Enter the right abbrevation of the name of a month");
 						continue;
 					}
+					else
+						break;
 				}
 				break;
 	}
@@ -197,4 +201,3 @@ char * s_gets(char * st, int n)
 
 	return ret_val;
 }
-v
