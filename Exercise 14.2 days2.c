@@ -104,7 +104,7 @@ int main(void)
 	unsigned int year;
 	unsigned int days = 0;
 	unsigned int month;
-	char * month_pt;			//	used by malloc()
+	char monthName[NAMEXISE];
 	int index = 0;
 
 	printf("Enter a day in a month.\n");
@@ -130,9 +130,9 @@ int main(void)
 				break;
 		case 2 :
 				printf("Enter the name of a month.\n");
-				while (s_gets(month_pt, NAMESIZE))
+				while (s_gets(monthName, NAMESIZE))
 				{
-					while (index < MAXMONTH && strcmp((*month_pt), monthInfo[index].name) != 0)
+					while (index < MAXMONTH && strcmp(monthName, monthInfo[index].name) != 0)
 						index++;
 					if (index =  MAXMONTH)
 					{
@@ -143,9 +143,9 @@ int main(void)
 				break;
 		case 3 :
 				printf("Enter the abbrevation of the month.");
-				while (s_gets(month_pt, ABBRE))
+				while (s_gets(monthName, ABBRE))
 				{
-					while (index < MAXMONTH && strcmp((*month_pt), monthInfo[index].abbre) != 0)
+					while (index < MAXMONTH && strcmp(monthName, monthInfo[index].abbre) != 0)
 						index++;
 					if (index =  MAXMONTH)
 					{
