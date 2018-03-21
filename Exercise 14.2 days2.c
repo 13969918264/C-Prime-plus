@@ -104,7 +104,7 @@ int main(void)
 	unsigned int year;
 	unsigned int days = 0;
 	unsigned int month;
-	char monthName[NAMEXISE];
+	char monthName[NAMESIZE];
 	int index = 0;
 
 	printf("Enter a day in a month.\n");
