@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MONTHS 12
+#define MAXMONTH 12
 #define DAYS 366
 #define LEAP 4
 #define LEAPS 100
@@ -113,7 +113,7 @@ int main(void)
 	printf("Enter a month in a year.it maybe a number or name or abbrevation.\n");
 	printf("1) its number			2) its name			3) its abbravation");
 	printf("Please enter the number of the choice\n");
-	while (!scanf("%ud", &choice)y && choice > 0 && choice < 4)
+	while (!scanf("%ud", &choice) && choice > 0 && choice < 4)
 		printf("Enter the right number of choice.\n");
 	while (getchar() != '\n')
 		continue;
@@ -130,7 +130,7 @@ int main(void)
 				printf("Enter the name of a month.\n");
 				while (s_gets(month_pt, NAMESIZE))
 				{
-					while (index < MAXMONTH && strcmp(*month_pt, monthInfo[index].name) != 0)
+					while (index < MAXMONTH && strcmp((*month_pt), monthInfo[index].name) != 0)
 						index++;
 					if (index =  MAXMONTH)
 					{
@@ -143,7 +143,7 @@ int main(void)
 				printf("Enter the abbrevation of the month.");
 				while (s_gets(month_pt, ABBRE))
 				{
-					while (index < MAXMONTH && strcmp(*month_pt, monthInfo[index].abbre) != 0)
+					while (index < MAXMONTH && strcmp((*month_pt), monthInfo[index].abbre) != 0)
 						index++;
 					if (index =  MAXMONTH)
 					{
@@ -153,7 +153,7 @@ int main(void)
 				}
 				break;
 	}
-	printf("Enter the year.\n")
+	printf("Enter the year.\n");
 	while (!scanf("%ud", &year))
 		printf("Enter a positive number.\n");
 	while (getchar() != '\n')
@@ -161,12 +161,32 @@ int main(void)
 	days = day;
 	while (index-- > 0)
 		days += monthInfo[index].days;
-	if (years % LEAPS == 0)
-		if (years % (LEAP * LEAPS) == 0)
+	if (year % LEAPS == 0)
+		if (year % (LEAP * LEAPS) == 0)
 			days++;
-	else if (years % LEAP == 0)
+	else if (year % LEAP == 0)
 		days++;
 	printf("The days up through the given day is %ud.\n", days);
 
 	return 0;
+}
+
+
+
+char * s_gets(char * st, int n)
+{
+	char * ret_val;
+	char * find;
+
+	ret_val = fgets(st, n, stdin);
+	if (ret_val)
+	{
+		if (find = strchr(st, '\n'))
+			*find = '\n'
+		else
+			while (getchar() != '\n')
+				continue;
+	}
+
+	return ret_val;
 }
