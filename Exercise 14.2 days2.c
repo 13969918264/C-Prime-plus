@@ -13,6 +13,8 @@
 #define NAMESIZE 15
 #define ABBRE 4
 
+char * s_gets(char *, int);
+
 struct month {
 	char name[NAMESIZE];
 	char abbre[ABBRE];			//	a three-letter abbreviation
@@ -182,7 +184,7 @@ char * s_gets(char * st, int n)
 	if (ret_val)
 	{
 		if (find = strchr(st, '\n'))
-			*find = '\n'
+			*find = '\n';
 		else
 			while (getchar() != '\n')
 				continue;
