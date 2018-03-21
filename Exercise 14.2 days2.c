@@ -134,6 +134,7 @@ int main(void)
 				{
 					while (index < MAXMONTH && !strcmp(monthName, monthInfo[index].name))
 						index++;
+					printf("%d\n", index);
 					if (index ==  MAXMONTH)
 					{
 						printf("Enter the right name of a month\n");
@@ -150,9 +151,10 @@ int main(void)
 				{
 					while (index < MAXMONTH && !strcmp(monthName, monthInfo[index].abbre))
 						index++;
-					if (index =  MAXMONTH)
+					if (index ==  MAXMONTH)
 					{
 						printf("Enter the right abbrevation of the name of a month");
+						index = 0;
 						continue;
 					}
 					else
@@ -166,6 +168,8 @@ int main(void)
 	while (getchar() != '\n')
 		continue;
 	days = day;
+	printf("%u\n", days);
+	printf("%d\n", index);
 	if (index > 1)
 	{
 		if (year % LEAPS == 0)
@@ -174,6 +178,8 @@ int main(void)
 		else if (year % LEAP == 0)
 			days++;
 	}
+	printf("cut\n");
+	printf("%u\n");
 	while (index-- > 0)
 		days += monthInfo[index].days;
 
