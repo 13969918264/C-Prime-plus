@@ -134,9 +134,9 @@ int main(void)
 				{
 					while (index < MAXMONTH && strcmp(monthName, monthInfo[index].name) != 0)
 						index++;
-					if (index =  MAXMONTH)
+					if (index ==  MAXMONTH)
 					{
-						printf("Enter the right name of a month");
+						printf("Enter the right name of a month\n");
 						continue;
 					}
 				}
