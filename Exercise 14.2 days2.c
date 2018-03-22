@@ -123,8 +123,9 @@ int main(void)
 	{
 		case 1 :
 				printf("Enter the number of a month.\n");
-				while (!scanf("%ud", &month))
-					printf("Enter the right number.\n");
+				while (scanf("%ud", &month) && month > 12)
+					printf("Enter the right number (less 13).\n");
+				index = month - 1;
 				while (getchar() != '\n')
 					continue;
 				break;
@@ -153,11 +154,11 @@ int main(void)
 				printf("Enter the abbrevation of the month.");
 				while (s_gets(monthName, ABBRE))
 				{
-					while (index < MAXMONTH && !strcmp(monthName, monthInfo[index].abbre))
+					while (index < MAXMONTH && strcmp(monthName, monthInfo[index].abbre) != 0)
 						index++;
 					if (index ==  MAXMONTH)
 					{
-						printf("Enter the right abbrevation of the name of a month");
+						printf("Enter the right abbrevation of the name of a month\n");
 						index = 0;
 						continue;
 					}
