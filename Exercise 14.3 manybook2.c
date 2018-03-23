@@ -18,8 +18,9 @@ struct book{			/*	set up book template	*/
 
 char * s_gets(char *, int);
 void swap(struct book *, struct book *);			//	exchange the variable by pointers.
-void sort_title(struct book * [], int n);			//	sort the array of pointer accord to the title.
-void sort_value(struct book * [], int n);			//	sort the array of pointer accord to the value.
+void sort_title(struct book * [], int);			//	sort the array of pointer accord to the title.
+void sort_value(struct book * [], int);			//	sort the array of pointer accord to the value.
+void print_str(struct book * [], int);
 
 int main(void)
 {
@@ -51,14 +52,12 @@ int main(void)
 			ptstr[index] = &library[index];
 	//	In order of alphabetized title
 		printf("sort by title (a to z)\n");
-		sort(ptstr, ptstr[].title, count);
-		for (index = 0; index < count; index++)
-			printf("%s by %s: $%.2f\n", ptstr[index]->title, ptstr[index]->author, ptstr[index]->value);
+		sort_title(ptstr, count);
+		print_str(ptstr, count);
 	//	In order of increased value
 		printf("sort by  increased value.\n");
-		sort(ptstr, ptstr[].value, count);
-		for (index = 0; index < count; index++)
-			printf("%s by %s: $%.2f\n", ptstr[index]->title, ptstr[index]->author, ptstr[index]->value);
+		sort_value(ptstr, count);
+		print_str(ptstr, count);
 	}
 	else
 		printf("No books? Too bad");
@@ -106,7 +105,7 @@ void sort_value(struct book * ptstr[], int n)			//	sort the array of pointer acc
 
 	for (i = 0; i < n - 1; i++)
 		for (j = i + 1; j < n; j++)
-			if (strcmp(ptstr[i]->value, ptstr[j]->value) > 0)
+			if (ptstr[i]->value > ptstr[j]->value)
 				swap(ptstr[i], ptstr[j]);
 }
 
@@ -119,4 +118,14 @@ void swap(struct book * pt1, struct book * pt2)			//	exchange the variable by po
 	temp = pt1;
 	pt1 = pt2;
 	pt2 = temp;
+}
+
+
+
+void print_str(struct book * pt[], int n)
+{
+	int index = 0;
+
+	for (index = 0; index < n; index++)
+			printf("%s by %s: $%.2f\n", pt[index]->title, pt[index]->author, pt[index]->value);
 }
