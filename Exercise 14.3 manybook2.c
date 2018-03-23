@@ -2,7 +2,7 @@
 	Name: 赵子豪(ZiHao Zhao)
 	Date：2018年3月23日
 */
-/*	manybook.c -- multiple book inventory	*/
+/*	manybook2.c -- multiple book inventory	*/
 #include <stdio.h>
 #include <string.h>
 
@@ -17,14 +17,15 @@ struct book{			/*	set up book template	*/
 };
 
 char * s_gets(char *, int);
-struct book (*) [] sort(struct book (*) [], char *);
+void swap(struct book *, struct book *);			//	exchange the variable by pointers
+void sort(struct book * [], char *, int n);			//	sort the array of pointer accord to the given string.
 
 int main(void)
 {
 	struct book library[MAXBKS];			/*	array of book structures	*/
 	int count = 0;
 	int index;
-	struct book (* ptstr)[MAXBKS];			/*	A pointer point to array of MAXBKS book structures	*/
+	struct book * ptstr[MAXBKS];			/*	A pointer point to array of MAXBKS book structures	*/
 
 	printf("Please enter the book title.\n");
 	printf("Press [enter] at the start of a line to stop.\n");
@@ -47,11 +48,13 @@ int main(void)
 			printf("%s by %s: $%.2f\n", library[index].title, library[index].author, library[index].value);
 		ptstr = library;
 	//	In order of alphabetized title
-		sort(ptstr, title);
+		printf("sort by title (a to z)\n");
+		sort(ptstr, title, count);
 		for (index = 0; index < count; index++)
 			printf("%s by %s: $%.2f\n", ptstr[index].title, ptstr[index].authour, ptstr[index].value);
 	//	In order of increased value
-		sort(ptstr, value)
+		printf("sort by  increased value.\n");
+		sort(ptstr, value, count);
 		for (index = 0; index < count; index++)
 			printf("%s by %s: $%.2f\n", ptstr[index].title, ptstr[index].authour, ptstr[index].value);
 	}
@@ -71,8 +74,7 @@ char * s_gets(char * st, int n)
 	ret_val = fgets(st, n, stdin);
 	if (ret_val)
 	{
-		find = strchr(st, '\n');
-		if (find)
+		if (find = strchr(st, '\n'))
 			*find = '\0';
 		else
 			while (getchar() != '\n')
@@ -80,4 +82,27 @@ char * s_gets(char * st, int n)
 	}
 
 	return ret_val;
+}
+
+
+
+void sort(struct book * ptstr[], char * st, int n)			//	sort the array of pointer accord to the given string.
+{
+	int i, j;
+
+	for (i = 0; i < n - 1; i++)
+		for (j = i + 1; j < n; j++)
+			if (strcmp(ptstr[i].st, ptstr[j]) > 0)
+				swap(ptstr[i], ptstr[j]);
+}
+
+
+
+void swap(struct book * pt1, struct book * pt2)			//	exchange the variable by pointers
+{
+	struct book * temp;
+
+	temp = pt1;
+	pt1 = pt2;
+	pt2 = temp;
 }
