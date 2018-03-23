@@ -17,8 +17,9 @@ struct book{			/*	set up book template	*/
 };
 
 char * s_gets(char *, int);
-void swap(struct book *, struct book *);			//	exchange the variable by pointers
-void sort(struct book * [], char *, int n);			//	sort the array of pointer accord to the given string.
+void swap(struct book *, struct book *);			//	exchange the variable by pointers.
+void sort_title(struct book * [], int n);			//	sort the array of pointer accord to the title.
+void sort_value(struct book * [], int n);			//	sort the array of pointer accord to the value.
 
 int main(void)
 {
@@ -52,12 +53,12 @@ int main(void)
 		printf("sort by title (a to z)\n");
 		sort(ptstr, ptstr[].title, count);
 		for (index = 0; index < count; index++)
-			printf("%s by %s: $%.2f\n", ptstr[index]->title, ptstr[index]->authour, ptstr[index]->value);
+			printf("%s by %s: $%.2f\n", ptstr[index]->title, ptstr[index]->author, ptstr[index]->value);
 	//	In order of increased value
 		printf("sort by  increased value.\n");
 		sort(ptstr, ptstr[].value, count);
 		for (index = 0; index < count; index++)
-			printf("%s by %s: $%.2f\n", ptstr[index]->title, ptstr[index]->authour, ptstr[index]->value);
+			printf("%s by %s: $%.2f\n", ptstr[index]->title, ptstr[index]->author, ptstr[index]->value);
 	}
 	else
 		printf("No books? Too bad");
@@ -87,13 +88,25 @@ char * s_gets(char * st, int n)
 
 
 
-void sort(struct book * ptstr[], char * st, int n)			//	sort the array of pointer accord to the given string.
+void sort_title(struct book * ptstr[], int n)			//	sort the array of pointer accord to the title.
 {
 	int i, j;
 
 	for (i = 0; i < n - 1; i++)
 		for (j = i + 1; j < n; j++)
-			if (strcmp(ptstr[i].st, ptstr[j]) > 0)
+			if (strcmp(ptstr[i]->title, ptstr[j]->title) > 0)
+				swap(ptstr[i], ptstr[j]);
+}
+
+
+
+void sort_value(struct book * ptstr[], int n)			//	sort the array of pointer accord to the value.
+{
+	int i, j;
+
+	for (i = 0; i < n - 1; i++)
+		for (j = i + 1; j < n; j++)
+			if (strcmp(ptstr[i]->value, ptstr[j]->value) > 0)
 				swap(ptstr[i], ptstr[j]);
 }
 
