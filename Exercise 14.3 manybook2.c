@@ -47,17 +47,17 @@ int main(void)
 		for (index = 0; index < count; index++)
 			printf("%s by %s: $%.2f\n", library[index].title, library[index].author, library[index].value);
 		for (index = 0; index < count; index++)
-			ptstr[index] = library[index];
+			ptstr[index] = &library[index];
 	//	In order of alphabetized title
 		printf("sort by title (a to z)\n");
 		sort(ptstr, ptstr[].title, count);
 		for (index = 0; index < count; index++)
-			printf("%s by %s: $%.2f\n", ptstr[index].title, ptstr[index].authour, ptstr[index].value);
+			printf("%s by %s: $%.2f\n", ptstr[index]->title, ptstr[index]->authour, ptstr[index]->value);
 	//	In order of increased value
 		printf("sort by  increased value.\n");
 		sort(ptstr, ptstr[].value, count);
 		for (index = 0; index < count; index++)
-			printf("%s by %s: $%.2f\n", ptstr[index].title, ptstr[index].authour, ptstr[index].value);
+			printf("%s by %s: $%.2f\n", ptstr[index]->title, ptstr[index]->authour, ptstr[index]->value);
 	}
 	else
 		printf("No books? Too bad");
