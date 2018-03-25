@@ -3,6 +3,10 @@
 	Date：2018年3月23日
 */
 /*	manybook2.c -- multiple book inventory	*/
+
+/*	When I want to swap two struct instance by using an function with two argument, but it can't be able to do that.
+	I don't know why, I suspect that the function arguments are duplication of ther rural parameter.
+*/
 #include <stdio.h>
 #include <string.h>
 
