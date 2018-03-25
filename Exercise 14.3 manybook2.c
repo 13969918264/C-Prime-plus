@@ -93,8 +93,11 @@ void sort_title(struct book * ptstr[], int n)			//	sort the array of pointer acc
 
 	for (i = 0; i < n - 1; i++)
 		for (j = i + 1; j < n; j++)
+		{
+			printf("the earlier is %s, the other is %s\n", ptstr[i]->title, ptstr[j]->title);
 			if (strcmp(ptstr[i]->title, ptstr[j]->title) > 0)
 				swap(ptstr[i], ptstr[j]);
+		}
 }
 
 
@@ -105,8 +108,11 @@ void sort_value(struct book * ptstr[], int n)			//	sort the array of pointer acc
 
 	for (i = 0; i < n - 1; i++)
 		for (j = i + 1; j < n; j++)
+		{
+			printf("the earlier is %s, the other is %s\n", ptstr[i]->value, ptstr[j]->value);
 			if (ptstr[i]->value > ptstr[j]->value)
 				swap(ptstr[i], ptstr[j]);
+		}
 }
 
 
