@@ -96,7 +96,13 @@ void sort_title(struct book * ptstr[], int n)			//	sort the array of pointer acc
 		{
 			printf("the earlier is %s, the other is %s\n", ptstr[i]->title, ptstr[j]->title);
 			if (strcmp(ptstr[i]->title, ptstr[j]->title) > 0)
-				swap(ptstr[i], ptstr[j]);
+			{
+				struct book * temp;
+
+				temp = ptstr[i];
+				ptstr[i] = ptstr[j];
+				ptstr[j] = temp;
+			}
 			printf("Now, the earlier is %s, the other is %s\n", ptstr[i]->title, ptstr[j]->title);
 		}
 }
@@ -112,35 +118,17 @@ void sort_value(struct book * ptstr[], int n)			//	sort the array of pointer acc
 		{
 			printf("the earlier is %f, the other is %f\n", ptstr[i]->value, ptstr[j]->value);
 			if (ptstr[i]->value > ptstr[j]->value)
-				swap(ptstr[i], ptstr[j]);
+			{
+				struct book * temp;
+
+				temp = ptstr[i];
+				ptstr[i] = ptstr[j];
+				ptstr[j] = temp;
+			}
 			printf("Now, the earlier is %f, the other is %f\n", ptstr[i]->value, ptstr[j]->value);
 		}
 }
 
-
-
-/*
-//	fail to swap
-void swap(struct book * pt1, struct book * pt2)			//	exchange the variable by pointers
-{
-	struct book * temp;
-
-	temp = pt1;
-	pt1 = pt2;
-	pt2 = temp;
-}
-*/
-
-
-//	the first re-version
-void swap(struct book * pt1, struct bookd * pt2)
-{
-	struct book * temp;
-
-	temp = *pt1;
-	pt1 = *pt2;
-	pt2 = *temp;
-}
 
 
 void print_str(struct book * pt[], int n)
