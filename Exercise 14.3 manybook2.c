@@ -119,7 +119,8 @@ void sort_value(struct book * ptstr[], int n)			//	sort the array of pointer acc
 
 
 
-/*	fail to swap	*/
+/*
+//	fail to swap
 void swap(struct book * pt1, struct book * pt2)			//	exchange the variable by pointers
 {
 	struct book * temp;
@@ -128,7 +129,18 @@ void swap(struct book * pt1, struct book * pt2)			//	exchange the variable by po
 	pt1 = pt2;
 	pt2 = temp;
 }
+*/
 
+
+//	the first re-version
+void swap(struct book * pt1, struct bookd * pt2)
+{
+	struct book * temp;
+
+	temp = *pt1;
+	pt1 = *pt2;
+	pt2 = *temp;
+}
 
 
 void print_str(struct book * pt[], int n)
