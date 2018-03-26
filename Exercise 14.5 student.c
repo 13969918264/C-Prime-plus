@@ -95,12 +95,12 @@ void request(struct student * st)
 
 
 
-void calculate(struct student * st, int m)
+void calculate_aver(struct student * st, int m)
 {
 	int i = 0;
 
 	while (i < m)
-		*(st + i)->aver_grade = (*(st + i)->grade[0] + *(st + i)->grade[1] + *(st + i)->grade[2]) / 3;
+		(st + i)->aver_grade = ((st + i)->grade[0] + (st + i)->grade[1] + (st + i)->grade[2]) / 3;
 }
 
 
@@ -111,9 +111,9 @@ void print_info(struct student * st, int n)
 
 	while (i < n)
 	{
-		printf("%s %s:\n", *(st + i)->who.first, *(st + i)->who.last);
-		printf("Your scores are %6.3f\t%6.3f\t%6.3f\n", *(st + i)->grade[0], *(st +i)->grade[1], *(st + i)->grade[2]);
-		printf("Your average grade is %6.3f\n", *(st + i)->aver_grade);
+		printf("%s %s:\n", (st + i)->who.first, (st + i)->who.last);
+		printf("Your scores are %6.3f\t%6.3f\t%6.3f\n", (st + i)->grade[0], (st +i)->grade[1], (st + i)->grade[2]);
+		printf("Your average grade is %6.3f\n", (st + i)->aver_grade);
 		i++;
 	}
 }
@@ -126,6 +126,6 @@ void print_aver_grade(struct student * st, int n)
 	float class_aver_grade = 0;
 
 	while (i < n)
-		class_aver_grade += *(st + i++)->aver_grade;
-	printf("%6.3f\n", class_aver_grade);
+		class_aver_grade += (st + i++)->aver_grade;
+	printf("The class average grade is %6.3f\n", class_aver_grade / n);
 }
