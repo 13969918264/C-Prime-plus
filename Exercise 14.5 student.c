@@ -7,21 +7,21 @@
 
 #define NAMESIZE 31
 #define GRADESIZE 3
-#define CSIDE 4
+#define CSIZE 4
 
 struct name {
 	char first[NAMESIZE];
-	char last[NAMESIZE]
+	char last[NAMESIZE];
 };
 
 struct student {
 	struct name who;
 	float grade[GRADESIZE];
-	float aver_grade
+	float aver_grade;
 };
 
 void request(struct student *);			//	prompting the user with a student name and a request for scores
-void calculate_aver(struct student *, int, int);			//	calculate the average of scores and assign it to the proper member
+void calculate_aver(struct student (*) [], int);			//	calculate the average of scores and assign it to the proper member
 void print_info(struct student (*) [], int);			//	print the  information in each structure
 void print_aver_grade(struct student (*) [], int);			//	print the class average grade
 
@@ -29,7 +29,7 @@ int main(void)
 {
 	int index = 0;
 
-	struct student stu[CSIDE] = {
+	struct student stu[CSIZE] = {
 		{
 			{
 				"ZiHao",
@@ -73,23 +73,23 @@ void request(struct student * st)
 {
 	int i = 0;
 
-	printf("%s %s\n", st.who.first, st.who.last);
+	printf("%s %s\n", st->who.first, st->who.last);
 	printf("Enter the first grade.\n");
-	while (scanf("%f", st.grade[i]) != 1)
+	while (scanf("%f", st->grade[i]) != 1)
 		continue;
-	while (getchar() != '\n');
+	while (getchar() != '\n')
 			continue;
-	index++;
+	i++;
 	printf("Enter the second grade.\n");
-	while (scanf("%f", st.grade[i]) != 1)
+	while (scanf("%f", st->grade[i]) != 1)
 		continue;
-	while (getchar() != '\n');
+	while (getchar() != '\n')
 			continue;
-	index++;
+	i++;
 	printf("Enter the third grade.\n");
-	while (scanf("%f", st.grade[i]) != 1)
+	while (scanf("%f", st->grade[i]) != 1)
 		continue;
-	while (getchar() != '\n');
+	while (getchar() != '\n')
 			continue;
 }
 
@@ -100,7 +100,7 @@ void calculate(struct student (* st) [], int m)
 	int i = 0;
 
 	while (i < m)
-		(*st)[i].aver_grade = ((*st)[i].grade[0] + (*st)[i].grade[1] + (*st++)[i].grade[2]) / 3;
+		(*st)[i].aver_grade = ((*st)[i].grade[0] + (*st)[i].grade[1] + (*st)[i].grade[2]) / 3;
 }
 
 
@@ -126,5 +126,6 @@ void print_aver_grade(struct student (* st)[], int n)
 	float class_aver_grade = 0;
 
 	while (i < n)
-		class_aver += (*st)[i++].aver_grade;
+		class_aver_grade += (*st)[i++].aver_grade;
+	printf("%6.3f\n", class_aver_grade);
 }
