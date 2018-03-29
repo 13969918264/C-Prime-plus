@@ -61,8 +61,11 @@ int main(void)
 		request(&stu[index]);
 		index++;
 	}
+	printf("Access completed.\n");
 	calculate_aver(&stu[0], CSIZE);
+	printf("Calculate completed.\n");
 	print_info(&stu[0], CSIZE);
+	puts("The information printed completed");
 	print_aver_grade(&stu[0], CSIZE);
 	printf("done.\n");
 
@@ -75,19 +78,19 @@ void request(struct student * st)
 
 	printf("%s %s\n", st->who.first, st->who.last);
 	printf("Enter the first grade.\n");
-	while (scanf("%f", st->grade[i]) != 1)
+	while (scanf("%f", &(st->grade[i])) != 1)
 		continue;
 	while (getchar() != '\n')
 			continue;
 	i++;
 	printf("Enter the second grade.\n");
-	while (scanf("%f", st->grade[i]) != 1)
+	while (scanf("%f", &(st->grade[i])) != 1)
 		continue;
 	while (getchar() != '\n')
 			continue;
 	i++;
 	printf("Enter the third grade.\n");
-	while (scanf("%f", st->grade[i]) != 1)
+	while (scanf("%f", &(st->grade[i])) != 1)
 		continue;
 	while (getchar() != '\n')
 			continue;
@@ -100,7 +103,10 @@ void calculate_aver(struct student * st, int m)
 	int i = 0;
 
 	while (i < m)
+	{
 		(st + i)->aver_grade = ((st + i)->grade[0] + (st + i)->grade[1] + (st + i)->grade[2]) / 3;
+		i++;
+	}
 }
 
 
