@@ -3,6 +3,7 @@
 	Date：2018年3月30日
 */
 /*	player.c -- the scores of some baseball players	*/
+/*	Initialized an array of sturct, should i do it when declara it?	*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -20,25 +21,154 @@ struct scores {
 	float bat_aver;
 };
 
+struct scores players[MAXNUM] = {
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	},
+	{
+		.bats = 0,
+		.hits = 0,
+		.walks = 0,
+		.rpis = 0,
+		.bat_aver = 0
+	}
+	};
+
 void access_calculate(FILE *, struct scores *);			//	read content from files and calculate them
 char * s_gets(char *, int);
 
 int main(void)
 {
-	struct scores players[MAXNUM];
-	int index;
+//	struct scores players[MAXNUM];
+	int index = 0;
 	FILE * ptf;
 	char file_name[NAMESIZE];
-
+/*
 	for (index = 0; index < MAXNUM; index++)
-	{	players[index] = {
+		players[index] = {
 			.bats = 0,
 			.hits = 0,
 			.walks = 0,
 			.rpis = 0,
 			.bat_aver = 0
 		};
-	}
+*/
 	puts("Enter the file name.");
     s_gets(file_name, NAMESIZE);
 	if ((ptf = fopen(file_name, "r")) == NULL)
