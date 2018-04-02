@@ -189,7 +189,7 @@ int main(void)
 	fprintf(stdout, "Now, there are the scores of players.\n");
 	printf("number	first name	last name	bats	hits	walks	rpis	aver_bat\n");
 	for (index = 0; index < MAXNUM; index++)
-		printf("%d	%s	%s	%d	%d	%d	%d	%f\n",
+		printf("%d	%s	%s			%d	%d	%d	%d	%f\n",
 			index, players[index].first, players[index].last, players[index].bats, players[index].hits,	players[index].walks, players[index].rpis, players[index].bat_aver);
 	if (fclose(ptf) != 0)
 		fprintf(stderr, "Error in closing files\n");
@@ -245,6 +245,7 @@ void access_calculate(FILE * ptf, struct scores * pts)
 	fscanf(ptf, "%d", &rpis);
 	pts->rpis += rpis;
 	printf("Calculate the average of bats.\n");
-	pts->bat_aver = pts->hits / pts->bats;
+//	There is a bug, I will find it.
+//	pts->bat_aver = pts->hits / pts->bats;
 	printf("Done!\n");
 }
