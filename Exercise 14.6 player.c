@@ -183,6 +183,7 @@ int main(void)
 			fprintf(stderr, "Error: %d is not a number of a player\n", index);
 			exit(EXIT_FAILURE);
 		}
+		printf("Here is %d.\n", index);
 		access_calculate(ptf, &players[index]);
 	}
 	printf("Access and calculate successfully.\n");
@@ -228,21 +229,26 @@ void access_calculate(FILE * ptf, struct scores * pts)
 
 	printf("Access first name of a player.\n");
 	for (index = 0; (ch = getc(ptf)) != ' ' && index < NAMESIZE; index++)
-		pts->first[index];
+		pts->first[index] = ch;
+	pts->first[index] = '\0';
 	printf("Access last name of a player.\n");
 	for (index = 0; (ch = getc(ptf)) != ' ' && index < NAMESIZE; index++)
-		pts->last[index];
+		pts->last[index] = ch;
+	pts->last[index] = '\0';			//	produce a string, not an array
+	printf("%s %s\n", pts->first, pts->last);
 	printf("Access the bats.\n");
-	fscanf(ptf, "%d", &bats);
+	fscanf(ptf, "%u", &bats);
 	pts->bats += bats;
+	printf("bats: %u\n", pts->bats);
 	printf("Access the hits.\n");
-	fscanf(ptf, "%d", &hits);
+	fscanf(ptf, "%u", &hits);
 	pts->hits += hits;
+	printf("hits: %u\n", pts->hits);
 	printf("Access the walks.\n");
-	fscanf(ptf, "%d", &walks);
+	fscanf(ptf, "%u", &walks);
 	pts->walks += walks;
 	printf("Access the rpis.\n");
-	fscanf(ptf, "%d", &rpis);
+	fscanf(ptf, "%u", &rpis);
 	pts->rpis += rpis;
 	printf("Calculate the average of bats.\n");
 //	There is a bug, I will find it.
