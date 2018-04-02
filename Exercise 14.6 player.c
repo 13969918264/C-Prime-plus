@@ -176,7 +176,7 @@ int main(void)
 		fprintf(stderr, "Can't open the file %s.\n", file_name);
 		exit(EXIT_FAILURE);
 	}
-	while (fscanf(ptf, "%d", &index) == 1)
+	while (fscanf(ptf, "%d", &index))
 	{
 		if (index < 0 || index > 18)
 		{
@@ -225,7 +225,6 @@ void access_calculate(FILE * ptf, struct scores * pts)
 	unsigned int hits = 0;
 	unsigned int walks = 0;
 	unsigned int rpis = 0;
-	float bat_aver = 0;
 
 	printf("Access first name of a player.\n");
 	for (index = 0; (ch = getc(ptf)) != ' ' && index < NAMESIZE; index++)
@@ -247,4 +246,5 @@ void access_calculate(FILE * ptf, struct scores * pts)
 	pts->rpis += rpis;
 	printf("Calculate the average of bats.\n");
 	pts->bat_aver = pts->hits / pts->bats;
+	printf("Done!\n");
 }
