@@ -176,13 +176,14 @@ int main(void)
 		fprintf(stderr, "Can't open the file %s.\n", file_name);
 		exit(EXIT_FAILURE);
 	}
-	while (fscanf(ptf, "%d", &index))
+	while (fscanf(ptf, "%d", &index) != EOF)
 	{
 		if (index < 0 || index > 18)
 		{
 			fprintf(stderr, "Error: %d is not a number of a player\n", index);
 			exit(EXIT_FAILURE);
 		}
+		getc(ptf);
 		printf("Here is %d.\n", index);
 		access_calculate(ptf, &players[index]);
 	}
@@ -252,6 +253,8 @@ void access_calculate(FILE * ptf, struct scores * pts)
 	pts->rpis += rpis;
 	printf("Calculate the average of bats.\n");
 //	There is a bug, I will find it.
-//	pts->bat_aver = pts->hits / pts->bats;
+//	I have found it. In this case, when it read from the file, i forgot to let it omit a space,
+//	and ensue the content in the file was overlooked by this program, because of my design.
+	pts->bat_aver = pts->hits / pts->bats;
 	printf("Done!\n");
 }
