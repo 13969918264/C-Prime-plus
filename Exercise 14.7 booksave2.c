@@ -28,7 +28,6 @@ int main(void)
 	int index, filecount;
 	FILE * pbooks;
 	int size = sizeof(struct book);
-	int label;
 
 	if ((pbooks = fopen("book.dat", "r+b")) == NULL)
 	{
@@ -44,14 +43,29 @@ int main(void)
 		printf("%s by %s: $%.2f\n", library[count].title, library[count].author, library[count].value);
 		printf("Do you want to change or deleted this record?\n");
 		printf("1) change	2) delete	3) keep it\n");
-		while (scanf("%d", &label) != 1)
+		while (scanf("%d", &library[count].flag) != 1)
 			printf("Please enter the right number of choice.\n");
 		while (getchar() != '\n')
 			continue;
-		library[count].flag = label;
+		if (library[count].flag == 1)
+		{
+			printf("Please enter the new information.\n");
+			printf("Please enter the title\n");
+			s_gets(library[count].title, MAXTITL);
+			printf("Please enter the author\n");
+			s_gets(library[count].author, MAXAUTL);
+			puts("Now enter the value");
+			scanf("%f", &library[count].value);
+			while (getchar() != '\n')
+				continue;			/*	clear input line	*/
+		}
+		else (library[count].flag == 2)
+		{
+			puts("delete completed and read next");
+			break;
+		}
 		count++;
 	}
-	filecount = count;
 	if (count == MAXBKS)
 	{
 		fputs("The book.dat file is full.", stderr);
@@ -82,7 +96,10 @@ int main(void)
 	{
 		puts("Here is the list of your books:");
 		for (index = 0; index < count; index++)
+		{
+
 			printf("%s by %s: $%.2f\n", library[index].title, library[index].author, library[index].value);
+		}
 		fwrite(&library[filecount], size, count - filecount, pbooks);
 	}
 	else
