@@ -59,9 +59,9 @@ int main(void)
 			while (getchar() != '\n')
 				continue;			/*	clear input line	*/
 		}
-		else (library[count].flag == 2)
+		else if (library[count].flag == 2)
 		{
-			puts("delete completed and read next");
+			puts("delete completed and read next title");
 			break;
 		}
 		count++;
@@ -84,14 +84,36 @@ int main(void)
 			continue;			/*	clear input line	*/
 		printf("Do you want to change or deleted this record?\n");
 		printf("1) change	2) delete	3) keep it\n");
-		while (scanf("%d", &library[count++].flag) != 1)
+		while (scanf("%d", &library[count].flag) != 1)
 			printf("Please enter the right number of choice.\n");
 		while (getchar() != '\n')
 			continue;
+		if (library[count].flag == 1)
+		{
+			printf("Please enter the new information.\n");
+			printf("Please enter the title\n");
+			s_gets(library[count].title, MAXTITL);
+			printf("Please enter the author\n");
+			s_gets(library[count].author, MAXAUTL);
+			puts("Now enter the value");
+			scanf("%f", &library[count].value);
+			while (getchar() != '\n')
+				continue;			/*	clear input line	*/
+		}
+		else if (library[count].flag == 2)
+		{
+			puts("delete completed and read next title.");
+			break;
+		}
+		count++;
 		if (count < MAXBKS)
 			puts("Enter the next title.");
 	}
-
+	if (count == MAXBKS)
+	{
+		fputs("The book.dat file is full.", stderr);
+		exit(2);
+	}
 	if (count > 0)
 	{
 		puts("Here is the list of your books:");
@@ -110,6 +132,9 @@ int main(void)
 
 	return 0;
 }
+
+
+
 char * s_gets(char * st, int n)
 {
 	char * ret_val;
