@@ -25,7 +25,7 @@ void list_empty(struct seat *, int);			//	show list of empty seats
 void alpha_list(struct seat *, int);			//	show alphabetical list of seats
 void assign_seat(struct seat *, int);			//	assign a customer to a assignment
 void delete_seat(struct seat *, int);			//	delete a seat assignment
-void store(struct seat *, int);			//	store the data of the information about seat of the plane
+void store(struct seat *, int, FILE *);			//	store the data of the information about seat of the plane
 
 int main(void)
 {
@@ -80,10 +80,19 @@ int main(void)
 		}
 	};
 	int label;
+	int size = sizeof (struct seat);
+	FILE * pt;
+	int i;
 
+	if ((pt = fopen("seat.txt", "a+b")) == NULL)
+	{
+		fprintf(stderr, "Can't open this file\n");
+		exit(EXIT_FAILURE);
+	}
 	menu();
 	while (scanf("%c", &label) && label != 'f')
 	{
+	//	printf("%c", label);
 		while (getchar() != '\n')
 			continue;			//	clean the entry of next
 		switch(label)
@@ -103,13 +112,19 @@ int main(void)
 			case 'e' :
 				delete_seat(&customer[0], MAXSIZE);
 				break;
-			default :
+			default  :
 				printf("Please enter the right number of choice.\n");
 		};
-		printf("What else do you want to do?\n");
 		menu();
 	}
+	for (i = 0; i < MAXSIZE; i++)
+	{
+		if (customer[i].marker == 1)
+			fwrite(&customer[i], size, 1, pt);
+	}
 	puts("Done!");
+	if (fclose(pt) != 0)
+		fprintf(stderr, "Error in closing file.\n");
 
 	return 0;
 }
@@ -210,8 +225,10 @@ void assign_seat(struct seat * arr, int n)
 		}
 */
 	}
+	printf("What else do you want to do?\n");
 }
 void delete_seat(struct seat * arr, int n)
 {}
-void store(struct seat * arr, int n)
-{}
+void store(struct seat * arr, int n, FILE * pt)
+{
+	}
