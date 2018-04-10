@@ -80,15 +80,7 @@ int main(void)
 		}
 	};
 	int label;
-	int size = sizeof (struct seat);
-	FILE * pt;
-	int i;
 
-	if ((pt = fopen("seat.txt", "a+b")) == NULL)
-	{
-		fprintf(stderr, "Can't open this file\n");
-		exit(EXIT_FAILURE);
-	}
 	menu();
 	while (scanf("%c", &label) && label != 'f')
 	{
@@ -117,14 +109,7 @@ int main(void)
 		};
 		menu();
 	}
-	for (i = 0; i < MAXSIZE; i++)
-	{
-		if (customer[i].marker == 1)
-			fwrite(&customer[i], size, 1, pt);
-	}
 	puts("Done!");
-	if (fclose(pt) != 0)
-		fprintf(stderr, "Error in closing file.\n");
 
 	return 0;
 }
@@ -229,6 +214,3 @@ void assign_seat(struct seat * arr, int n)
 }
 void delete_seat(struct seat * arr, int n)
 {}
-void store(struct seat * arr, int n, FILE * pt)
-{
-	}
