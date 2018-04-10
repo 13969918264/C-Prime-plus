@@ -20,11 +20,11 @@ struct seat {
 
 void menu(void);			//	show the choice
 char * s_gets(char *, int);
-void number_empty(struct seat *);			//	show number of empty seats
-void list_empty(struct seat *);			//	show list of empty seats
-void alpha_list(struct seat *);			//	show alphabetical list of seats
-void assign_seat(struct seat *);			//	assign a customer to a assignment
-void delete_seat(struct seat *);			//	delete a seat assignment
+void number_empty(struct seat *, int);			//	show number of empty seats
+void list_empty(struct seat *, int);			//	show list of empty seats
+void alpha_list(struct seat *, int);			//	show alphabetical list of seats
+void assign_seat(struct seat *, int);			//	assign a customer to a assignment
+void delete_seat(struct seat * int);			//	delete a seat assignment
 
 int main(void)
 {
@@ -86,19 +86,19 @@ int main(void)
 		switch(label)
 		{
 			case 'a' :
-				number_empty();
+				number_empty(&customer[0], MAXSIZE);
 				break;
 			case 'b' :
-				list_empty();
+				list_empty(&customer[0], MAXSIZE);
 				break;
 			case 'c' :
-				alpha_list();
+				alpha_list(&customer[0], MAXSIZE);
 				break;
 			case 'd' :
-				assign_seat();
+				assign_seat(&customer[0], MAXSIZE);
 				break;
 			case 'e' :
-				delete_seat();
+				delete_seat(&customer[0], MAXSIZE);
 				break;
 		};
 		menu();
