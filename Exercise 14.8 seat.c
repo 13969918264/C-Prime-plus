@@ -24,7 +24,8 @@ void number_empty(struct seat *, int);			//	show number of empty seats
 void list_empty(struct seat *, int);			//	show list of empty seats
 void alpha_list(struct seat *, int);			//	show alphabetical list of seats
 void assign_seat(struct seat *, int);			//	assign a customer to a assignment
-void delete_seat(struct seat * int);			//	delete a seat assignment
+void delete_seat(struct seat *, int);			//	delete a seat assignment
+void store(struct seat *, int);			//	store the data of the information about seat of the plane
 
 int main(void)
 {
@@ -55,7 +56,7 @@ int main(void)
 		},
 		{
 			.id = 7,
-			.marker
+			.marker = 0
 		},
 		{
 			.id = 8,
@@ -83,6 +84,8 @@ int main(void)
 	menu();
 	while (scanf("%c", &label) && label != 'f')
 	{
+		while (getchar() != '\n')
+			continue;			//	clean the entry of next
 		switch(label)
 		{
 			case 'a' :
@@ -100,10 +103,115 @@ int main(void)
 			case 'e' :
 				delete_seat(&customer[0], MAXSIZE);
 				break;
+			default :
+				printf("Please enter the right number of choice.\n");
 		};
+		printf("What else do you want to do?\n");
 		menu();
 	}
 	puts("Done!");
 
 	return 0;
 }
+
+
+
+void menu(void)
+{
+	printf("a) show number of empty seats               b) show list of empty seats\n");
+	printf("c) show alphabetical list of empty seats    d) assignate a customer to a seat assignment.\n");
+	printf("e) delete a seat assignment                 f) quit\n");
+}
+
+
+
+char * s_gets(char * st, int n)
+{
+	char * ret_val;
+	char * find;
+
+	if (ret_val = fgets(st, n, stdin))
+		if (find = strchr(st, '\n'))
+			*find = '\n';
+		else
+			while (getchar() != '\n')
+				continue;
+
+	return ret_val;
+}
+
+
+
+void number_empty(struct seat * arr, int n)
+{
+	int i;
+
+	for (i = 0; (arr + i)->marker != 1 && i < n; i++)
+		printf("The number %d seat is free.\n", (arr + i)->id);
+}
+
+
+
+void list_empty(struct seat * arr, int n)
+{}
+
+
+
+void alpha_list(struct seat * arr, int n)
+{}
+
+
+
+void assign_seat(struct seat * arr, int n)
+{
+	int i, number;
+
+	printf("There are the number of empty.\n");
+	number_empty(arr, n);
+	printf("Which one do you want?\n");
+	printf("Enter the number of seat.\n");
+	while (scanf("%d", &number) == 1)
+	{
+		i = number - 1;			//	convert to index of the array of structures
+		while (getchar() != '\n')
+			continue;
+		if ((arr + i)->marker == 1)
+		{
+			printf("This seat is assigned. enter the right number of empty\n");
+			continue;
+		}
+		else if (number > MAXSIZE || number < 1)
+		{
+			printf("There is no such number seat.\n");
+			continue;
+		}
+		(arr + i)->marker = 1;
+		puts("Enter your first name.");
+		s_gets((arr + i)->first, NAMESIZE);
+		puts("Now enter your last name.");
+		s_gets((arr + i)->last, NAMESIZE);
+		puts("reserved completely");
+		break;
+/*
+		printf("Reserve another ticket?\n");
+		printf("y means yes and the others means no.\n");
+		if (getchar() == 'y')
+		{
+			printf("There are the number of empty.\n");
+			number_empty(arr, n);
+			printf("Which one do you want?\n");
+			printf("Enter the number of seat.\n");
+			continue;
+		}
+		else
+		{
+			printf("Buy it\n");
+			break;
+		}
+*/
+	}
+}
+void delete_seat(struct seat * arr, int n)
+{}
+void store(struct seat * arr, int n)
+{}
