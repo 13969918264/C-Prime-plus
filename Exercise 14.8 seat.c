@@ -109,7 +109,7 @@ int main(void)
 		};
 		menu();
 	}
-	puts("Done!");
+	puts("Quit!");
 
 	return 0;
 }
@@ -146,14 +146,33 @@ void number_empty(struct seat * arr, int n)
 {
 	int i;
 
+	printf("There are the number of empty seat\n");
 	for (i = 0; (arr + i)->marker != 1 && i < n; i++)
-		printf("The number %d seat is free.\n", (arr + i)->id);
+	{
+		if (i != 0 && i % 4 == 0)
+			putchar('\n');
+		printf("%d\t", (arr + i)->id);
+	}
+	putchar('\n');
 }
 
 
 
 void list_empty(struct seat * arr, int n)
-{}
+{
+	int i;
+
+	printf("There are the list of empty seat\n");
+	printf("-------------------------------------------------\n|\t");
+	for (i = 0; (arr + i)->marker != 1 && i < n; i++)
+	{
+		if (i != 0 && i % 3 == 0)
+			printf("\n-------------------------------------------------\n|\t");
+		printf("%d\t|\t", (arr + i)->id);
+	}
+	printf("\n");
+	printf("-------------------------------------------------\n");
+}
 
 
 
