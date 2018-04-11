@@ -147,10 +147,10 @@ void number_empty(struct seat * arr, int n)
 	int i;
 
 	printf("There are the number of empty seat\n");
-	for (i = 0; (arr + i)->marker != 1 && i < n; i++)
+	for (i = 0; i < n; i++)
 	{
-		if (i != 0 && i % 4 == 0)
-			putchar('\n');
+		if ((arr + i)->marker == 1)
+			continue;
 		printf("%d\t", (arr + i)->id);
 	}
 	putchar('\n');
@@ -160,12 +160,17 @@ void number_empty(struct seat * arr, int n)
 
 void list_empty(struct seat * arr, int n)
 {
-	int i;
+	int i;			//	for the structures
 
 	printf("There are the list of empty seat\n");
 	printf("-------------------------------------------------\n|\t");
-	for (i = 0; (arr + i)->marker != 1 && i < n; i++)
+	for (i = 0; i < n; i++)
 	{
+		if ((arr + i)->marker == 1)
+		{
+			printf("\t|\t");
+			continue;
+		}
 		if (i != 0 && i % 3 == 0)
 			printf("\n-------------------------------------------------\n|\t");
 		printf("%d\t|\t", (arr + i)->id);
@@ -185,7 +190,6 @@ void assign_seat(struct seat * arr, int n)
 {
 	int i, number;
 
-	printf("There are the number of empty.\n");
 	number_empty(arr, n);
 	printf("Which one do you want?\n");
 	printf("Enter the number of seat.\n");
@@ -232,4 +236,5 @@ void assign_seat(struct seat * arr, int n)
 	printf("What else do you want to do?\n");
 }
 void delete_seat(struct seat * arr, int n)
-{}
+{
+	}
