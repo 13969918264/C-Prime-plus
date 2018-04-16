@@ -84,6 +84,8 @@ int main(void)
 	menu();
 	while (scanf("%c", &label) && label != 'f')
 	{
+		if (label == '\n')
+			continue;
 	//	printf("%c", label);
 		while (getchar() != '\n')
 			continue;			//	clean the entry of next
@@ -162,7 +164,7 @@ void list_empty(struct seat * arr, int n)
 {
 	int i;			//	for the structures
 
-	printf("There are the list of empty seat\n");
+	printf("There are the list of empty seat. And the space means that the seat had been booked\n");
 	printf("-------------------------------------------------\n|\t");
 	for (i = 0; i < n; i++)
 	{
@@ -235,6 +237,28 @@ void assign_seat(struct seat * arr, int n)
 	}
 	printf("What else do you want to do?\n");
 }
+
+
+
 void delete_seat(struct seat * arr, int n)
 {
+	int i;
+
+	printf("There are the number of seats which had been booked\n");
+	for (i= 0; i < n; i++)
+	{
+		if ((arr + i)->marker == 1)
+			printf("%d", i + 1);
 	}
+	putchar('\n');
+	printf("Which seat do you want to delete.\n");
+	while (scanf("%d", &i) != 1)
+		continue;
+	while (getchar() != '\n')
+		continue;
+	i--;			//	convert the number of seat to index of the array of the structures
+	(arr + i)->marker = 0;
+	(arr + i)->first[0] = '\0';
+	(arr + i)->last[0] = '\0';
+	printf("Delete completely!\n");
+}
