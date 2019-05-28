@@ -1,3 +1,6 @@
+姓名：赵子豪
+日期：2019年5月28日
+
 /* invert.c -- using  bit operations to display  binary */
 #include <stdio.h>
 #include <limits.h>
