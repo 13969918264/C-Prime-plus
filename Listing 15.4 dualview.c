@@ -4,6 +4,11 @@
 */
 
 /*  dualview.c -- bit fields and bitwise operators  */
+/*
+ *  There are some problems, I run it but the output is not same with the given output.
+ *  and I donot know what wrong with it
+ */
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <limits.h>
