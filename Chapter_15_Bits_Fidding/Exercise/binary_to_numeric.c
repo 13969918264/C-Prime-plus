@@ -18,6 +18,7 @@ int main(void)
 	printf("Enter a binary string and then return you a numeric number.\n");
 	while (scanf("%s", arr) == 1)
 	{
+		printf("%s\n", arr);
 		if (!isdigit(arr[0]))
 			break;
 		else
@@ -36,7 +37,7 @@ int bin_to_num(char * str)
 
 	for (count = 0, output = 0; count < strlen(str); count++)
 	{
-		printf("%d\t", strlen(str));
+		printf("%d\t%d\t", strlen(str), *(str + count));			//	现在是字符串形式，ASCII中不是数字本身
 		output = output + ( ( *(str + count) ) * pow(2,strlen(str) - count - 1));
 		printf("%d\n", output);
 	}
