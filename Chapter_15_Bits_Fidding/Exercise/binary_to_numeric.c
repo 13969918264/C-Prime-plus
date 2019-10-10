@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 #define MAX 128
 
@@ -34,5 +35,11 @@ int bin_to_num(char * str)
 	int output;
 
 	for (count = 0, output = 0; count < strlen(str); count++)
-		output += ( ( *(str + count) ) << (strlen(str) - count - 1) );
+	{
+		printf("%d\t", strlen(str));
+		output = output + ( ( *(str + count) ) * pow(2,strlen(str) - count - 1));
+		printf("%d\n", output);
+	}
+
+	return output;
 }
