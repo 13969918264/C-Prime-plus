@@ -7,7 +7,8 @@
 #include <stdio.h>
 
 #define TWO 2			/*	you can use comments if you like	*/
-#define OW "Consisteny is the last refusing of the unimagina\tive. -- Oscar Wilde"	/*	a backslash continue a definition to the next line	*/
+#define OW "Consisteny is the last refusing of the unimagina\
+tive. -- Oscar Wilde"	/*	a backslash continue a definition to the next line	*/
 #define FOUR  TWO*TWO
 #define PX printf("X is %d.\n", x)
 #define FMT "x is %d.\n"
