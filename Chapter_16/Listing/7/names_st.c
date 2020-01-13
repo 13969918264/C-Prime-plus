@@ -17,7 +17,7 @@ void get_names(names * pn)
 
 void show_names(const names * pn)
 {
-    print("%s %s", pn->first, pn->last);
+    print("%s %s", pn->first, pn->last); 
 }
 
 char * s_gets(char * st, int n)
