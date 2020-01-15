@@ -17,7 +17,7 @@ void get_names(names * pn)
 
 void show_names(const names * pn)
 {
-    print("%s %s", pn->first, pn->last); 
+    printf("%s %s", pn->first, pn->last); 
 }
 
 char * s_gets(char * st, int n)
@@ -25,7 +25,7 @@ char * s_gets(char * st, int n)
     char * ret_val;
     char * find;
 
-    ret_val = fgets(st, n, stdin)
+    ret_val = fgets(st, n, stdin);
     if (ret_val)
     {
         find = strchr(st, '\n');            //  look for newline
@@ -36,5 +36,5 @@ char * s_gets(char * st, int n)
                 continue;           //  dispose of rest of line
     }
 
-    retrn ret_val;
+    return ret_val;
 }
