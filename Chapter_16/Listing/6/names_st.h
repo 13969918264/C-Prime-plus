@@ -4,7 +4,7 @@
 */
 //	names_st.h -- names_st structures header file
 //	constants
-#include <stdio.h>
+#include <string.h>
 
 #define SLEN 32
 
@@ -21,5 +21,5 @@ typedef struct names_st names;
 
 //	function prototype
 void get_names(names *);
-void show_names(names *);
+void show_names(const names *);
 char * s_gets(char * st, int n);
