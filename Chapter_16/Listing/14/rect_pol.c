@@ -24,12 +24,12 @@ Polar_V rect_to_polar(Rect_V);
 int main(void)
 {
     Rect_V input;
-    Rect_V result;
+    Polar_V result;
 
     puts("Enter x and y coordinates; enter q to quit:");
     while (scanf("%lf %lf", &input.x, &input.y) == 2)
     {
-        result = rect_to_polar(input);
+        result = rect_to_polar(&input);
         printf("magintude = %0.2f, angle = %0.2f\n", result.magnitude, result.angle);
     }
     puts("Bye.");
