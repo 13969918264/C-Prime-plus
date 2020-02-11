@@ -11,14 +11,14 @@
 
 //  generic square root function
 #define SQRT(X) _Generic((X),\
-    long double:    sqrtl, \
-    default:        sqrt, \
+    long double:    sqrtl,\
+    default:        sqrt,\
     float:          sqrtf)(X)
 
-#define SIN(X) _Generic((X), \
-    long double:    sinl((X) / RAD_TO_DEG), \
-    default:        sin((X) / RAD_TO_DEG), \
-    float:          sinf((X) / RAD_TO_DEG) \
+#define SIN(X) _Generic((X),\
+    long double:    sinl((X) / RAD_TO_DEG),\
+    default:        sin((X) / RAD_TO_DEG),\
+    float:          sinf((X) / RAD_TO_DEG)\
 )
 
 int main(void)
