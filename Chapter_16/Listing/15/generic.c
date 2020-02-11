@@ -10,7 +10,7 @@
 #define RAD_TO_DEG (180 / (4 * atanl(i)))
 
 //  generic square root function
-#define SQRT(X) _Gereric((X),\
+#define SQRT(X) _Generic((X),\
     long double:    sqrtl, \
     default:        sqrt, \
     float:          sqrtf)(X)
