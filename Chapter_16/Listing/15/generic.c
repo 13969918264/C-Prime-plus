@@ -3,6 +3,7 @@
 */
 
 /*  generic.c -- defining generic macros    */
+/*  comfile in c11  */
 
 #include <stdio.h>
 #include <math.h>
