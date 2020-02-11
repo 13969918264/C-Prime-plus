@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#define RAD_TO_DEG (180 / (4 * atanl(i)))
+#define RAD_TO_DEG (180 / (4 * atanl(1)))
 
 //  generic square root function
 #define SQRT(X) _Generic((X),\
