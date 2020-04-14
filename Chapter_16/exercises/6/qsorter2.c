@@ -1,7 +1,8 @@
 /*
-    утвс╨ю@20200316
+    утвс╨ю@20200414
 */
-/*  qsorter.c -- using qsort to sort groups o numbers   */
+/*  qsorter2.c -- using qsort to sort groups o numbers   */
+/*  н╢пч╦д  */
 
 #include <stdio.h>
 #include <stdlib.h>
