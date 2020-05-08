@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>         /*  prototype for exit() */
+#include <string.h>
 #include "list.h"
 
 void showmovies(Item item);

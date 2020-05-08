@@ -12,13 +12,13 @@ static void CopyToNode(Item item, Node * pnode);
 
 /*  interface functions */
 /*  set the list to empty   */
-void InitialzeList(List * plist)
+void InitializeList(List * plist)
 {
     *plist = NULL;
 }
 
 /*  return true if the list is empty    */
-bool ListIsEmtpy(const List * plist)
+bool ListIsEmpty(const List * plist)
 {
     if (*plist == NULL)
         return true;
@@ -27,7 +27,7 @@ bool ListIsEmtpy(const List * plist)
 }
 
 /*  returns true if list is full    */
-bool ListIfull(List * plist)
+bool ListIsFull(const List * plist)
 {
     Node * pt;
     bool full;
@@ -108,7 +108,7 @@ void EmptyTheList(List * plist)
 
 /*  local function definition   */
 /*  copies an item into a node  */
-static void CopyToItem(List * plist)
+static void CopyToNode(Item item, Node * pnode)
 {
     pnode->item = item;         /*  structure copy  */
 }
