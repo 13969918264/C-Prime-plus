@@ -9,7 +9,7 @@
 #include <stdbool.h>
 
 /*  INSERT ITEM TYPE HERE FOR EXAMPLE   */
-tyepdef int Item;           //  for use_q.c
+typedef int Item;           //  for use_q.c
 /*  OR typedef struct item {int gumption; int charisma;} Item   */
 
 #define MAXQUEUE 10
@@ -45,13 +45,13 @@ bool QueueIsEmpty(const Queue * pq);
 /*  operation:          determine the number in queue   */
 /*  precondition:       pq points to previonsly initialized queue   */
 /*  postcondition:      return number of items in queue */
-int QueueItemNumber(const Queue *pq);
+int QueueItemCount(const Queue * pq);
 
 /*  operation:          add item to rear of queue   */
 /*  precondition:       pq points to previonsly initialized queue. item is to be placed at the rear of queue   */
 /*  postcondition:      if queue is not empty, item is placed at rear of queue and function returns True; 
                         otherwise, queue is unchanged and function returns False   */
-bool EnQueue(Queue * pq);
+bool EnQueue(Item item, Queue * pq);
 
 /*  operation:          remove item from front of the queue  */
 /*  precondition:       pq points to previonsly initialized queue   */

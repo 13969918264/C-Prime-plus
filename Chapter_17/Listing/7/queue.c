@@ -9,7 +9,7 @@
 
 /*  local function  */
 static void CopyToNode(Item Item, Node * pn);
-static void CopyTItem(Node * pn, Item * pi);
+static void CopyToItem(Node * pn, Item * pi);
 
 void InitializeQueue(Queue * pq)
 {
@@ -19,17 +19,17 @@ void InitializeQueue(Queue * pq)
 
 bool QueueIsFull(const Queue * pq)
 {
-    return pq->item == MAXQUEUE;
+    return pq->items == MAXQUEUE;
 }
 
 bool QueueIsEmpty(const Queue * pq)
 {
-    return pq->item == 0;
+    return pq->items == 0;
 }
 
-bool QueueItemCount(const Queue * pq)
+int QueueItemCount(const Queue * pq)
 {
-    return pq->item;
+    return pq->items;
 }
 
 bool EnQueue(Item item, Queue * pq)
@@ -46,21 +46,22 @@ bool EnQueue(Item item, Queue * pq)
     }
     CopyToNode(item, pnew);
     pnew->next = NULL;
-    if (QueueIsEmpty(pq) )
-        pq->first = pnew;
+    if (QueueIsEmpty(pq) )          -- 函数有问题    
+        pq->front = pnew;
     else
         pq->rear->next = pnew;
-    pq->rear = pnew;
-    pq->item++;
+    pq->rear = pnew;    
+    pq->items++;
 
+    puts("完成");
     return true;
 }
 
-bool DeQueue(Item * pitem; Queue * pq)
+bool DeQueue(Item * pitem, Queue * pq)
 {
     Node * pt;
 
-    if (QueueIsempty(pq) )
+    if (QueueIsEmpty(pq) )
         return false;
     CopyToItem(pq->front, pitem);
     pt = pq->front;
