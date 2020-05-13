@@ -29,6 +29,7 @@ int main(void)
             {
                 printf("Putting %d into queue\n", temp);
                 EnQueue(temp, &line);
+                puts("บร");
             }
             else
                 puts("Queue is full!");

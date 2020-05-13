@@ -46,14 +46,13 @@ bool EnQueue(Item item, Queue * pq)
     }
     CopyToNode(item, pnew);
     pnew->next = NULL;
-    if (QueueIsEmpty(pq) )          -- 函数有问题    
+    if (QueueIsEmpty(pq) )          //empty函数有问题    
         pq->front = pnew;
     else
         pq->rear->next = pnew;
     pq->rear = pnew;    
     pq->items++;
 
-    puts("完成");
     return true;
 }
 
