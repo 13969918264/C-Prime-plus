@@ -52,13 +52,15 @@ int main(void)
                 EnQueue(temp, &line);
             } 
         }
+        
         if (wait_time <= 0 && !QueueIsEmpty(&line) )
         {
-            DeQueue (&temp, &line);
+            DeQueue (&temp, &line);         // 有问题在这， queue.c
             wait_time = temp.processtime;
             line_wait += cycle - temp.arrive;
             served++;
         }
+        
         if (wait_time > 0)
             wait_time--;
         sum_line += QueueItemCount(&line);
