@@ -18,7 +18,7 @@ static Trnode *MakeNode(const Item * pi);
 static bool ToLeft(const Item * il, const Item * i2);
 static bool ToRight(const Item * i1, const Item * i2);
 static void AddNode(Trnode * new_node, Trnode * root);
-static Inorder(const Trnode * root, void (*pfun)(Item item) );
+static void InOrder(const Trnode * root, void (*pfun)(Item item) );
 static Pair SeekItem(const Item * pi, const Tree * ptree);
 static void DeleteNode(Trnode ** ptr);
 static void DeleteAllNodes(Trnode * ptr);
@@ -77,7 +77,7 @@ bool AddItem(const Item * pi, Tree * ptree)
     if (ptree->root == NULL)            //  case 1: tree is empty
         ptree->root = new_node;         //  new node is tree root
     else            //  case 2:not empty
-        Addnode(new_node, ptree->root);         /*  add node to tree    */
+        AddNode(new_node, ptree->root);         /*  add node to tree    */
 
     return true;    
 }
@@ -115,7 +115,7 @@ void Traverse (const Tree * ptree, void (* pfun)(Item item) )
 void DeleteAll(Tree * ptree)
 {
     if (ptree != NULL)
-        DeleteAllNode(ptree->root);
+        DeleteAllNodes(ptree->root);
     ptree->root = NULL;
     ptree->size = 0;
 }
@@ -146,19 +146,19 @@ static void DeleteAllNodes(Trnode * root)
 
 static void AddNode(Trnode * new_node, Trnode * root)
 {
-    if (ToLeft(&new_node, &root->item) )
+    if (ToLeft(&new_node->item, &root->item) )
     {
         if (root->left == NULL)         /*  empty subtree   */
             root->left = new_node;
         else
-            AddNode(&new_node, root->left);
+            AddNode(new_node, root->left);
     }
     else if (ToRight(&new_node->item, &root->item) )
     {
         if (root->right == NULL)
             root ->right = new_node;
         else
-            AddNode(&new_node, root->right);
+            AddNode(new_node, root->right);
     }
     else
     {
@@ -167,7 +167,7 @@ static void AddNode(Trnode * new_node, Trnode * root)
     }
 }
 
-static bool Toleft(const Item * i1, const Item * i2)
+static bool ToLeft(const Item * i1, const Item * i2)
 {
     int comp1;
 

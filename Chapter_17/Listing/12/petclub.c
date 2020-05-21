@@ -21,7 +21,7 @@ int main(void)
     Tree pets;
     char choice;
 
-    InitizlizeTree(&pets);
+    InitializeTree(&pets);
     while ((choice = menu()) != 'q')
     {
         switch (choice)
@@ -30,7 +30,7 @@ int main(void)
                 break;
             case 'l' :  showpets(&pets);
                 break;
-            case 'f' :  findpet(&pets)
+            case 'f' :  findpet(&pets);
                 break;
             case 'n' :  printf("%d pets in club.\n", TreeItemCount(&pets) );
                 break;
@@ -64,7 +64,7 @@ char menu(void)
         else
             break;
     }
-    if (ch = EOF)           //  make EOF cause program to quit
+    if (ch == EOF)           //  make EOF cause program to quit
         ch = 'q';
 
     return ch;
@@ -98,7 +98,7 @@ void showpets(const Tree * pt)
 
 void printitem(Item item)
 {
-    printf("Pet: %-19s Kind: %-19s\n", item,petname, item.petkind);
+    printf("Pet: %-19s Kind: %-19s\n", item.petname, item.petkind);
 }
 
 void findpet(const Tree * pt)
@@ -112,7 +112,7 @@ void findpet(const Tree * pt)
     }
 
     puts("Please enter name of pet you wish to find:");
-    s_gets(temp.petnaem, SLEN);
+    s_gets(temp.petname, SLEN);
     puts("Please enter pet kind:");
     s_gets(temp.petkind, SLEN);
     uppercase(temp.petname);
@@ -135,7 +135,7 @@ void droppet(Tree * pt)
     }
 
     puts("Please enter name of pet you wisht to delete:");
-    s_gets(temp.pet_name,SLEN);
+    s_gets(temp.petname,SLEN);
     puts("Please enter the pet kind");
     s_gets(temp.petkind, SLEN);
     printf("%s the %s ", temp.petname, temp.petkind);
@@ -149,7 +149,7 @@ void uppercase(char * str)
 {
     while (*str)
     {
-        *str = toupper(*str)
+        *str = toupper(*str);
         str++;
     }
 }
@@ -159,7 +159,7 @@ char * s_gets(char * st, int n)
     char * find;
     char * ret_val;
 
-    ret_val = fgets(st, n, stdin)
+    ret_val = fgets(st, n, stdin);
     if (ret_val)
     {
         find = strchr(st, '\n');            //  look for newline
@@ -169,5 +169,5 @@ char * s_gets(char * st, int n)
             continue;           //  dispose of rest of line
     }
 
-    returen ret_val;
+    return ret_val;
 }
